@@ -59,12 +59,15 @@ if (isset($_POST['login_btn'])) {
 
         $_SESSION['auth'] = true;
 
+
         $userdata = mysqli_fetch_array($login_query_run);
+        $userid = $userdata['id_user'];
         $username = $userdata['name'];
         $useremail = $userdata['email'];
         $type = $userdata['type']; // lấy type trong sql
 
         $_SESSION['auth_user'] = [
+            'user_id' => $userid,
             'name' => $username,
             'email' => $useremail,
 
@@ -81,13 +84,6 @@ if (isset($_POST['login_btn'])) {
             // $_SESSION['message'] = "Đăng nhập thành công";
             // header('Location: ../index.php');
         }
-
-
-
-
-
-
-
     } else {
         $_SESSION['message'] = "Đăng nhập không thành công";
         header('Location: ../login.php');

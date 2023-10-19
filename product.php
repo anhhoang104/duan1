@@ -1,7 +1,9 @@
 <?php
 // session_start();
-include('includes/header.php');
+
 include('function/userfunctions.php');
+include('includes/header.php');
+
 
 
 if (isset($_GET['category'])) {
@@ -28,9 +30,9 @@ if (isset($_GET['category'])) {
                         Danh Mục /
                     </a>
                     <?= $category_name_run['name'] ?>
-                    
 
-                   
+
+
                 </h6>
             </div>
         </div>
@@ -49,18 +51,21 @@ if (isset($_GET['category'])) {
                         $product = getProductbyCid('product', $category_id);
                         if (mysqli_num_rows($product) > 0) {
                             foreach ($product as $item) {
+
                                 ?>
                                 <div class="col-md-3 mb-2">
-                                    <div class="card shadow category-card">
-                                        <div class="card-body">
+                                    <a href="product-view.php?productid=<?= $item['id'] ?>">
 
-                                            <img src="uploads/<?= $item['image'] ?>" alt="" class="w-100" style='height: 160px;'>
-                                            <h4>
-                                                <?= $item['productName']; ?>
+                                        <div class="card shadow category-card">
+                                            <div class="card-body">
 
-                                            </h4>
+                                                <img src="uploads/<?= $item['image'] ?>" alt="" class="w-100" style='height: 160px;'>
+                                                <h4>
+                                                    <?= $item['productName']; ?>
+
+                                                </h4>
+                                            </div>
                                         </div>
-                                    </div>
                                     </a>
                                 </div>
 

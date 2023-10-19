@@ -13,15 +13,20 @@
         <li class="nav-item">
           <a class="nav-link" href="category.php">Danh mục</a>
         </li>
+
         <!-- <li class="nav-item">
           <a class="nav-link" href="product.php">Sản phẩm</a>
         </li> -->
+
         <?php
         if (isset($_SESSION['auth'])) {
 
 
           ?>
-
+          <li class="nav-item">
+            <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item"
+                class="badge badge-danger"></span></a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,8 +40,6 @@
           </li>
           <?php
         } else {
-
-
           ?>
           <li class="nav-item">
             <a class="nav-link" href="register.php">Đăng Kí</a>
@@ -44,7 +47,7 @@
           <li class="nav-item">
             <a class="nav-link" href="login.php">Đăng Nhập</a>
           </li>
-        <?php
+          <?php
         }
         ?>
 

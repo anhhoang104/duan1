@@ -1,7 +1,8 @@
 <?php
 // session_start();
+include('function/userfunctions.php');
 include('includes/header.php');
-include('function/userfunctions.php') ?>
+ ?>
 
 <div class="py-3 bg-primary">
     <div class="container">
