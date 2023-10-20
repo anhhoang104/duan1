@@ -14,8 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
 
 
@@ -23,6 +25,9 @@
     <title>Nội thất Việt</title>
 
     <style>
+        a{
+            text-decoration: none;
+        }
         .category-card {
             width: 100%;
             max-width: 300px;
@@ -34,8 +39,8 @@
             /* Đảm bảo hình ảnh điền vào toàn bộ khu vực thẻ */
             height: auto;
             /* Bảo đảm tỷ lệ khung hình không bị biến dạng */
-        }
 
+        }
     </style>
 
 </head>

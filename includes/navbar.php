@@ -7,11 +7,24 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
+        <form action="search.php" method="GET" class="form-inline">
+          <input class="form-control mr-sm-2" type="text" name="query" placeholder="Tìm kiếm sản phẩm..."
+            aria-label="Search" style="width: 400px;">
+          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        </form>
+
+
         <li class="nav-item ">
           <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="category.php">Danh mục</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Yêu thích</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Giới thiệu</a>
         </li>
 
         <!-- <li class="nav-item">
@@ -23,11 +36,8 @@
 
 
           ?>
-          <li class="nav-item">
-            <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item"
-                class="badge badge-danger"></span></a>
-          </li>
-          <li class="nav-item dropdown">
+          
+          <li class="nav-item dropdown ml-5">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               <?= $_SESSION['auth_user']['name']; ?>
@@ -37,6 +47,10 @@
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i> <span id="cart-item"
+                class="badge badge-danger"></span></a>
           </li>
           <?php
         } else {
@@ -56,3 +70,4 @@
     </div>
   </div>
 </nav>
+

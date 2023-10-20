@@ -38,12 +38,31 @@ if (isset($_SESSION['auth'])) {
                     } else {
                         echo '<div class="alert alert-danger alert-dismissible mt2"><strong>Cập nhật số lượng không thành công</strong></div>';
                     }
-                } else {        
+                } else {
                     echo '<div class="alert alert-danger alert-dismissible mt2"><strong>Đã xảy ra sự cố!</strong></div>';
                 }
                 break;
+            case "delete":
+                $cart_id = $_POST['cart_id'];
+                $user_id = $_SESSION['auth_user']['user_id'];
+                $check_existing_cart = "SELECT * FROM carts WHERE id = '$cart_id' AND user_id = '$user_id'";
+                $check_existing_cart_run = mysqli_query($con, $check_existing_cart);
+
+                if (mysqli_num_rows($check_existing_cart_run) > 0) {
+                    $delete_query = "DELETE FROM carts WHERE id ='$cart_id' ";
+                    $delete_query_run = mysqli_query($con, $delete_query);
+                    if ($delete_query_run) {
+                        echo '<div class="alert alert-success alert-dismissible mt2"><strong>Xóa sản phẩm thành công</strong></div>';
+                    } else {
+                        echo '<div class="alert alert-danger alert-dismissible mt2"><strong>Xóa sản phẩm không thành công</strong></div>';
+                    }
+                } else {
+                    echo '<div class="alert alert-danger alert-dismissible mt2"><strong>Đã xảy ra sự cố!</strong></div>';
+                }
+                break;
+
             default:
-                echo '<div class="alert alert-danger alert-dismissible mt2"><strong>Đã xảy ra sự cố!</strong></div>';
+                echo '<div class="alert alert-danger alert-dismissible mt2"><strong>Đã xảy ra sự cố1!</strong></div>';
                 break;
         }
     }

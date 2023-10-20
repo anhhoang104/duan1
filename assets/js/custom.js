@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('.cong_btn').click(function (e) {
+    $(document).on('click', '.cong_btn', function (e) {
 
         e.preventDefault();
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
         }
 
     });
-    $('.tru_btn').click(function (e) {
+    $(document).on('click', '.tru_btn', function (e) {
 
         e.preventDefault();
 
@@ -28,12 +28,12 @@ $(document).ready(function () {
         }
 
     });
-    $('.AddtoCartbtn').click(function (e) {
+    $(document).on('click', '.AddtoCartbtn', function (e) {
         e.preventDefault();
 
         var qty = $(this).closest('.product_data').find('.input-qty').val();
         var proid = $(this).val();
-      
+
 
         $.ajax({
             method: "POST",
@@ -45,19 +45,19 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $("#message").html(response);
-             
+
             }
         });
-        
+
     });
 
-    $(document).on('click','.update_qty',function (){
+    $(document).on('click', '.update_qty', function () {
 
         var qty = $(this).closest('.product_data').find('.input-qty').val();
 
         var prod_id = $(this).closest('.product_data').find('.prodId').val();
 
-       
+
         $.ajax({
             method: "POST",
             url: "function/handlecart.php",
@@ -68,10 +68,33 @@ $(document).ready(function () {
             },
             success: function (response) {
                 $("#message").html(response);
-             
+
             }
         });
-            
+
+
+    });
+
+
+    $(document).on('click', '.deleteItem', function () {
+        var cart_id = $(this).val();
+        // alert(cart_id);
+        $.ajax({
+            method: "POST",
+            url: "function/handlecart.php",
+            data: {
+                "cart_id": cart_id,
+                "scope": "delete"
+            },
+            success: function (response) {
+
+                $("#message").html(response);
+              
+                $('#mycart').load(location.href + " #mycart"); // load lại cái id mycart
+
+            }
+        });
+
 
     });
 
