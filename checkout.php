@@ -78,8 +78,9 @@ include('authenticate.php');
                                 <div class="card product_data shadow mb-2">
                                     <div class="row align-items-center mt-3">
                                         <div class="col-md-2">
-                                            <img class="ml-3 mb-3" src="uploads/<?= $citem['image'] ?>" alt="image"
-                                                width="40px" height="50px">
+                                            <img class="mb-3 " src="uploads/<?= $citem['image'] ?>" alt="image"
+                                                width="40px" height="50px"
+                                                style="margin-left : 1rem;">
                                         </div>
                                         <div class="col-md-5">
                                             <label for="">
@@ -110,8 +111,7 @@ include('authenticate.php');
                             </h5>
                             <div class="">
                                 <input type="hidden" value="COD" name="payment_mode">
-                                <button type="submit" name="placeOrderBtn" class="btn btn-outline-info w-100 fw-bold">Thanh toán khi nhận
-                                    hàng</button>
+                                <button type="submit" name="placeOrderBtn" class="btn btn-outline-info w-100 fw-bold">Tiến hành thanh toán</button>
                             </div>
 
 

@@ -1,19 +1,10 @@
 <?php
 session_start();
 include('../admin/config/dbcon.php');
-function getCartItems_placeorder()
-{
-    global $con;
-    $user_id = $_SESSION['auth_user']['user_id'];
-
-    $query = "SELECT c.id AS cart_id, p.id AS product_id, p.productName, p.image,p.price, c.prod_qty FROM carts c JOIN product p ON c.prod_id = p.id WHERE c.user_id = '$user_id'";
-
-    return $query_run = mysqli_query($con, $query);
-}
 
 if (isset($_SESSION['auth'])) {
 
-    if (isset($_SESSION['placeOrderBtn'])) {
+    if (isset($_POST['placeOrderBtn'])) {
 
 
         $name = mysqli_real_escape_string($con, $_POST['name']);
@@ -58,6 +49,10 @@ if (isset($_SESSION['auth'])) {
                 $insert_items_query_run = mysqli_query($con, $insert_items_query);
 
             }
+            $deleteCartQuery = "DELETE FROM carts WHERE user_id = '$user_id'";
+            $deleteCartQuery_run = mysqli_query($con,$deleteCartQuery);
+
+
             $_SESSION['message'] = "Thành công! ";
             header('Location: ../my-orders.php');
             die();

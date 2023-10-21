@@ -7,12 +7,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
-        <form action="search.php" method="GET" class="form-inline">
+        <!-- <form action="search.php" method="" class="d-flex">
           <input class="form-control mr-sm-2" type="text" name="query" placeholder="Tìm kiếm sản phẩm..."
             aria-label="Search" style="width: 400px;">
-          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Tìm kiếm</button>
-        </form>
-
+          <button class="btn btn-outline-secondary" type="submit">Tìm kiếm</button>
+        </form> -->
 
         <li class="nav-item ">
           <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>
@@ -36,7 +35,7 @@
 
 
           ?>
-          
+
           <li class="nav-item dropdown ml-5">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,4 +69,3 @@
     </div>
   </div>
 </nav>
-

@@ -6,7 +6,3 @@ a{
     text-decoration: none;
     
 }
-.an:hover {
-    /* Các thuộc tính CSS cho liên kết khi di chuột qua */
-    text-decoration: underline;
-}
