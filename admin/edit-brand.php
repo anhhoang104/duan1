@@ -17,16 +17,16 @@ include('../middleware/adminMiddleware.php');
                         ?>
                     <div class="card">
                         <div class="card-header">
-                            <h4>Sửa thương hiệu</h4>
+                            <h4>Sửa phân loại</h4>
                         </div>
                         <div class="card-body">
                             <form action="code.php" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="hidden" name="brand_id" value="<?= $data['id'] ?>">
-                                        <label for="">Tên thương hiệu</label>
+                                        <label for="">Tên phân loại</label>
                                         <input type="text" value="<?= $data['name'] ?>" class="form-control mb-2" name="name"
-                                            placeholder="Nhập vào tên danh mục...">
+                                            placeholder="Nhập vào tên phân loại...">
                                     </div>
 
                                     <div class="col-md-12">

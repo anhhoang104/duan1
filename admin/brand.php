@@ -8,7 +8,7 @@ include('../middleware/adminMiddleware.php');
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Thương hiệu</h4>
+                    <h4>Phân loại</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered table-striped">
@@ -16,7 +16,7 @@ include('../middleware/adminMiddleware.php');
                             <tr>
 
                                 <th>ID</th>
-                                <th>Tên thương hiệu</th>
+                                <th>Tên phân loại</th>
                                 <th>Tùy chỉnh</th>
                             </tr>
                         </thead>
@@ -45,7 +45,7 @@ include('../middleware/adminMiddleware.php');
                                     <?php
                                 }
                             } else {
-                                echo "Không có danh mục";
+                                echo "Không có phân loại";
                             }
                             ?>
 

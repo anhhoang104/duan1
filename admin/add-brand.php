@@ -8,15 +8,15 @@ include('../middleware/adminMiddleware.php');
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Thêm thương hiệu sản phẩm</h4>
+                    <h4>Thêm phân loại sản phẩm</h4>
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="">Tên thương hiệu</label>
+                                <label for="">Tên phân loại</label>
                                 <input type="text" class="form-control mb-2" name="name"
-                                    placeholder="Nhập vào tên danh mục...">
+                                    placeholder="Nhập vào tên phân loại...">
                             </div>
 
                             <div class="col-md-12">

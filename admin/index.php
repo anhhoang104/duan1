@@ -13,7 +13,7 @@ include('../middleware/adminMiddleware.php');
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="d-flex flex-column h-100">
-                                        <h2 class="font-weight-bolder mb-0">General Statistics</h2>
+                                        <h2 class="font-weight-bolder mb-0">Thống kê</h2>
                                     </div>
 
                                 </div>
@@ -21,7 +21,7 @@ include('../middleware/adminMiddleware.php');
                         </div>
                     </div>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-5 col-sm-5">
                             <div class="card  mb-2">
                                 <div class="card-header p-3 pt-2">
@@ -101,7 +101,7 @@ include('../middleware/adminMiddleware.php');
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

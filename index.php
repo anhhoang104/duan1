@@ -18,7 +18,7 @@ if (isset($_SESSION['message'])) {
 <h1>Hello, world!</h1>
 
 <button class="btn btn-primary">
-    Test
+    PUSH
 </button>
 
 

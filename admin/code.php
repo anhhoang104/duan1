@@ -187,7 +187,7 @@ if (isset($_POST['add_brand_btn'])) {
 
     // Trước tiên, kiểm tra xem $name có rỗng không
     if (empty($name)) {
-        redirect("add-brand.php", "Tên thương hiệu không được bỏ trống");
+        redirect("add-brand.php", "Tên phân loại không được bỏ trống");
     } else {
         // Sau đó, kiểm tra xem tên đã tồn tại trong bảng brand chưa
         $check_query = "SELECT * FROM brand WHERE name = '$name'";
@@ -195,16 +195,16 @@ if (isset($_POST['add_brand_btn'])) {
 
         if (mysqli_num_rows($check_result) > 0) {
             // Tên đã tồn tại, xuất thông báo lỗi
-            redirect("add-brand.php", "Thương hiệu đã tồn tại");
+            redirect("add-brand.php", "phân loại đã tồn tại");
         } else {
             // Tên chưa tồn tại, thêm vào cơ sở dữ liệu
             $brand_query = "INSERT INTO brand (name) VALUES ('$name')";
             $brand_query_run = mysqli_query($con, $brand_query);
 
             if ($brand_query_run) {
-                redirect("add-brand.php", "Lưu thương hiệu thành công");
+                redirect("add-brand.php", "Lưu phân loại thành công");
             } else {
-                redirect("add-brand.php", "Lưu thương hiệu không thành công");
+                redirect("add-brand.php", "Lưu phân loại không thành công");
             }
         }
     }
@@ -222,15 +222,15 @@ else if (isset($_POST['edit_brand_btn'])) {
     $check_result = mysqli_query($con, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
-        redirect("edit-brand.php?id=$brand_id", "Tên thương hiệu đã tồn tại");
+        redirect("edit-brand.php?id=$brand_id", "Tên phân loại đã tồn tại");
     } else {
         $update_query = "update brand set name = '$name' where id = '$brand_id' ";
         $update_query_run = mysqli_query($con, $update_query);
         if ($update_query_run) {
-            redirect("brand.php", "Cập nhật thương hiệu thành công!");
+            redirect("brand.php", "Cập nhật phân loại thành công!");
 
         } else {
-            redirect("edit-brand.php?id=$brand_id", "Cập nhật thương hiệu thất bại");
+            redirect("edit-brand.php?id=$brand_id", "Cập nhật phân loại thất bại");
         }
 
     }
@@ -246,9 +246,9 @@ else if (isset($_POST['delete_brand'])) {
     $delete_query_run = mysqli_query($con, $delete_query);
 
     if ($delete_query_run) {
-        redirect("brand.php", "Xóa thương hiệu thành công");
+        redirect("brand.php", "Xóa phân loại thành công");
     } else {
-        redirect("brand.php", "Xóa thương hiệu thất bại");
+        redirect("brand.php", "Xóa phân loại thất bại");
     }
 }
 //end xóa thương hiệu
