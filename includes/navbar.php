@@ -42,8 +42,8 @@
               <?= $_SESSION['auth_user']['name']; ?>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <!-- <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li> -->
+              <li><a class="dropdown-item" href="my-orders.php">Đơn hàng</a></li>
+              <li><a class="dropdown-item" href="#">Thông tin</a></li>
               <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
             </ul>
           </li>

@@ -12,8 +12,10 @@ include('authenticate.php');
         <h6 class="text-white ">
             <a class="text-white" href="index.php">
                 Home /
-            </a class="text-white" href="cart.php">
-            Thanh Toán
+            </a>
+            <a class="text-white" href="cart.php">
+                Thanh Toán
+            </a>
         </h6>
     </div>
 </div>
@@ -78,9 +80,8 @@ include('authenticate.php');
                                 <div class="card product_data shadow mb-2">
                                     <div class="row align-items-center mt-3">
                                         <div class="col-md-2">
-                                            <img class="mb-3 " src="uploads/<?= $citem['image'] ?>" alt="image"
-                                                width="40px" height="50px"
-                                                style="margin-left : 1rem;">
+                                            <img class="mb-3 " src="uploads/<?= $citem['image'] ?>" alt="image" width="40px"
+                                                height="50px" style="margin-left : 1rem;">
                                         </div>
                                         <div class="col-md-5">
                                             <label for="">
@@ -110,8 +111,9 @@ include('authenticate.php');
                                 </span>
                             </h5>
                             <div class="">
-                                <input type="hidden" value="COD" name="payment_mode">
-                                <button type="submit" name="placeOrderBtn" class="btn btn-outline-info w-100 fw-bold">Tiến hành thanh toán</button>
+                                <input type="hidden" value="Thanh toán khi nhận hàng" name="payment_mode">
+                                <button type="submit" name="placeOrderBtn"
+                                    class="btn btn-outline-info w-100 fw-bold">Thanh toán khi nhận hàng</button>
                             </div>
 
 

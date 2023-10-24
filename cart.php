@@ -12,8 +12,10 @@ include('authenticate.php');
         <h6 class="text-white ">
             <a class="text-white" href="index.php">
                 Home /
-            </a class="text-white" href="cart.php">
+</a>
+            <a class="text-white" href="cart.php">
             Giỏ hàng
+</a>
         </h6>
     </div>
 </div>

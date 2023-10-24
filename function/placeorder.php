@@ -21,8 +21,13 @@ if (isset($_SESSION['auth'])) {
 
         $user_id = $_SESSION['auth_user']['user_id'];
 
-        $query = "SELECT c.id AS cart_id, p.id AS product_id, p.productName, p.image,p.price, c.prod_qty FROM carts c JOIN product p ON c.prod_id = p.id WHERE c.user_id = '$user_id'";
-
+        $query = "SELECT c.id as cid, c.prod_id, c.prod_qty, p.id as pid, p.productName, p.image, p.price
+        FROM carts c
+        JOIN product p ON c.prod_id = p.id
+        WHERE c.user_id = '$user_id'
+        ORDER BY c.id DESC;
+        ";
+       
         $query_run = mysqli_query($con, $query);
 
         $totalPrice = 0;
@@ -59,7 +64,7 @@ if (isset($_SESSION['auth'])) {
                 $new_qty = $current_qty - $prod_qty;
                 $updateQty_query = "UPDATE product SET quantity =' $new_qty' WHERE id = '$prod_id'";
                 $updateQty_query_run = mysqli_query($con, $updateQty_query);
-                
+              
 
 
             }
