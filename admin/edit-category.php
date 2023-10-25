@@ -16,8 +16,8 @@ include('../middleware/adminMiddleware.php');
                         $data = mysqli_fetch_array($category);
                         ?>
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Sửa danh mục sản phẩm</h4>
+                        <div class="card-header bg-primary">
+                            <h4 class="text-white">Sửa danh mục sản phẩm</h4>
                         </div>
                         <div class="card-body">
                             <form action="code.php" method="POST" enctype="multipart/form-data">

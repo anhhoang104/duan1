@@ -366,9 +366,21 @@ else if (isset($_POST['edit_product_btn'])) {
             redirect("edit-product.php?id=$product_id", "Cập nhật sản phẩm thất bại");
         }
     
+}
+//Cập nhật trạng thái đơn hàng
+else if(isset($_POST['update_order_btn'])){
+    $track_no = $_POST['tracking_no'];
+    $order_status = $_POST['order_status'];
+
+    $updateOrder_query = "UPDATE orders SET status = '$order_status' WHERE tracking_no = '$track_no'";
+    $updateOrder_query_run = mysqli_query($con, $updateOrder_query);
+
+    redirect("view-orders.php?t=$track_no", "Cập nhật đơn hàng thành công!");
+
 } else {
     header('Location: ../index.php');
 }
+
 
 
 

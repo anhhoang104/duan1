@@ -7,8 +7,8 @@ include('../middleware/adminMiddleware.php');
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <h4>Sản phẩm</h4>
+                <div class="card-header bg-primary">
+                    <h4 class="text-white">Sản phẩm</h4>
                 </div>
                 <div class="card-body" id="product_table">
                     <table class="table table-bordered table-striped">

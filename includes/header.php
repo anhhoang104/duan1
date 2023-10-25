@@ -9,6 +9,9 @@
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap" rel="stylesheet">
@@ -25,9 +28,10 @@
     <title>Nội thất Việt</title>
 
     <style>
-        a{
+        a {
             text-decoration: none;
         }
+
         .category-card {
             width: 100%;
             max-width: 300px;
@@ -40,6 +44,17 @@
             height: auto;
             /* Bảo đảm tỷ lệ khung hình không bị biến dạng */
 
+        }
+
+        .underline {
+            height: 5px;
+            width: 150px;
+            background-color: red;
+            border-radius: 20px;
+        }
+
+        .bg-f2f2f2 {
+            background-color: #f2f2f2;
         }
     </style>
 

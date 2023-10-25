@@ -17,9 +17,9 @@ include('../middleware/adminMiddleware.php');
                     $data = mysqli_fetch_array($product);
                     ?>
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Sửa sản phẩm
-                                <a href="product.php" class="btn btn-primary float-end">Trở về</a>
+                        <div class="card-header bg-primary">
+                            <h4 class="text-white">Sửa sản phẩm
+                                <a href="product.php" class="btn btn-warning float-end"><i class="fa fa-reply"></i> Trở về</a>
                             </h4>
                         </div>
                         <div class="card-body">

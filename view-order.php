@@ -136,7 +136,7 @@ $data = mysqli_fetch_array($orderData);
                                     </table>
                                     <hr>
                                     <h4>Tổng giá : <span class="float-end fw-bold">
-                                            <?= $data['total_price']; ?>
+                                            <?= $data['total_price']; ?> VNĐ
                                         </span></h4>
                                     <hr>
                                     <div class="border p-1 mb-3 fw-bold">

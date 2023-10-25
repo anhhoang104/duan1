@@ -1,5 +1,5 @@
 <?php
-   session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -26,16 +26,17 @@
     <link id="pagestyle" href="assets/css/material-dashboard.min.css" rel="stylesheet" />
 
     <!-- Alertify js -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css" />
 
 
-    
+
     <style>
-        .form-control{
+        .form-control {
             border: 1px solid #b3a1a1 !important;
             padding: 8px 10px;
         }
+
     </style>
 
 </head>

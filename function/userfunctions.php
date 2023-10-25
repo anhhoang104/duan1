@@ -50,5 +50,10 @@
         $query = "SELECT * FROM orders WHERE tracking_no = '$tracking_no' AND user_id = '$user_id' ";
         return $query_run = mysqli_query($con,$query);
     }
+    function getAllTrending(){
+        global $con;
+        $query = "SELECT * FROM product WHERE trending ='1' ";
+        return $query_run = mysqli_query($con,$query);
+    }
 
 ?>
