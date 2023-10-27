@@ -30,28 +30,20 @@ include('includes/header.php');
                 ?>
                 <div class="card">
                     <div class="card-header">
-                        <h4>Đăng nhập</h4>
+                        <h4>Lấy lại mật khẩu</h4>
                     </div>
                     <div class="card-body">
+
+
+
                         <form action="function/authcode.php" method="POST">
-
-
-
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Email</label>
                                 <input type="email" name="email" class="form-control" placeholder="Nhập Email..."
                                     id="exampleInputPassword1">
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
-                                <input type="password" name="password" class="form-control"
-                                    placeholder="Nhập mật khẩu..." id="exampleInputPassword1">
-                            </div>
                             <div>
-                                <span>Bạn bị quên mật khẩu? <a href="password-reset.php">Quên mật khẩu</a></span>
-                            </div>
-                            <div>
-                                <button type="submit" name="login_btn" class="btn btn-primary">Đăng nhập</button>
+                                <button type="submit" name="password-reset-link" class="btn btn-primary">Gửi Email</button>
 
                             </div>
                         </form>

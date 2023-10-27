@@ -5,6 +5,12 @@ include('includes/header.php');
 
 include('authenticate.php');
 
+$cartItems = getCartItems();
+if(mysqli_num_rows($cartItems) == 0){
+    header('Location: index.php');
+}
+
+
 // include('function/handlecart.php') ?>
 
 <div class="py-3 bg-primary">
@@ -35,23 +41,27 @@ include('authenticate.php');
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <label class="fw-bold">Họ và tên</label>
-                                    <input type="text" name="name" required placeholder="Nhập tên..."
+                                    <input type="text" name="name" id="name" required placeholder="Nhập tên..."
                                         class="form-control">
+                                    <small class="text-danger name"></small>
                                 </div>
                                 <div class="col-md-7 mb-3">
                                     <label class="fw-bold">Email</label>
-                                    <input type="email" name="email" required placeholder="Nhập email..."
+                                    <input type="email" name="email" id="email" required placeholder="Nhập email..."
                                         class="form-control">
+                                    <small class="text-danger email"></small>
                                 </div>
                                 <div class="col-md-5 mb-3">
                                     <label class="fw-bold">Số điện thoại</label>
-                                    <input type="number" name="phone" required placeholder="Nhập SĐT..."
+                                    <input type="number" name="phone" id="phone" required placeholder="Nhập SĐT..."
                                         class="form-control">
+                                    <small class="text-danger phone"></small>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label class="fw-bold">Địa chỉ</label>
-                                    <textarea type="text" name="address" rows="6" required placeholder="Nhập địa chỉ..."
-                                        class="form-control"></textarea>
+                                    <textarea type="text" name="address" id="address" rows="6" required
+                                        placeholder="Nhập địa chỉ..." class="form-control"></textarea>
+                                    <small class="text-danger address"></small>
                                 </div>
                             </div>
                         </div>
@@ -114,6 +124,10 @@ include('authenticate.php');
                                 <input type="hidden" value="Thanh toán khi nhận hàng" name="payment_mode">
                                 <button type="submit" name="placeOrderBtn"
                                     class="btn btn-outline-info w-100 fw-bold">Thanh toán khi nhận hàng</button>
+
+                                <div id="paypal-button-container" class="mt-2"></div>
+
+
                             </div>
 
 
@@ -128,3 +142,102 @@ include('authenticate.php');
 
 
 <?php include('includes/footer.php'); ?>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AeQcASLASx-P3ezJMswPyTH4rp0Mlb-HIU1hCxxpz1Gp_t7Nw1MPvXUD8QbyodmHujg8obB8X72hnKbM&currency=USD"></script>
+
+<script>
+
+    paypal.Buttons({
+        style: {
+            layout: 'vertical',
+            color: 'blue',
+            shape: 'rect',
+            label: 'paypal',
+            height: 40,
+        },
+        onClick() {
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
+            var address = $('#address').val();
+
+            if (name.length == 0) {
+                $('.name').text("Tên không được bỏ trống!");
+            } else {
+                $('.name').text("");
+            }
+            if (email.length == 0) {
+                $('.email').text("Email không được bỏ trống!");
+            } else {
+                $('.email').text("");
+            }
+            if (phone.length == 0) {
+                $('.phone').text("SĐT không được bỏ trống!");
+            } else {
+                $('.phone').text("");
+            }
+            if (address.length == 0) {
+                $('.address').text("Địa chỉ không được bỏ trống!");
+            } else {
+                $('.address').text("");
+            }
+
+            if (name.length == 0 || email.length == 0 || phone.length == 0 || address.length == 0) {
+
+                return false;
+            }
+
+        },
+
+        createOrder: (data, actions) => {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '<?= $totalPrice ?>'
+                    }
+                }]
+            });
+        },
+        onApproce: (data, actions) => {
+            return actions.order.capture().then(function (orderData) {
+                // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                const transaction = orderData.purchase_units[0].payments.captures[0];
+                // alert('Transaction ${transaction.satus}:')
+                
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var address = $('#address').val();
+
+                var data = {
+                    'name': name,
+                    'email':email,
+                    'phone':phone,
+                    'address':address,
+                    'payment_mode':"Đã thanh toán bằng PayPal",
+                    'payment_id':transaction.id,
+                    
+                }
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "function/placeorder.php",
+                    data: data,
+                    success: function (response) {
+                        if(response == 201){
+                            alertify.success("Thanh toán thành công");
+                            // actions.redirect('my-orders.php');
+                            window.location.href = 'my-orders.php';
+                        }else{
+                            console.log(response);
+                        }
+
+                    }
+                });
+
+            });
+        }
+    }).render('#paypal-button-container');
+
+</script>

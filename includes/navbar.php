@@ -43,7 +43,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="my-orders.php">Đơn hàng</a></li>
-              <li><a class="dropdown-item" href="#">Thông tin</a></li>
+              <li><a class="dropdown-item" href="account.php">Thông tin</a></li>
               <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
             </ul>
           </li>

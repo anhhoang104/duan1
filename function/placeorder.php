@@ -71,10 +71,16 @@ if (isset($_SESSION['auth'])) {
             $deleteCartQuery = "DELETE FROM carts WHERE user_id = '$user_id'";
             $deleteCartQuery_run = mysqli_query($con,$deleteCartQuery);
 
+            if($payment_mode == "Thanh toán khi nhận hàng") {
+                $_SESSION['message'] = "Thành công! ";
+                header('Location: ../my-orders.php');
+                die();
+            }else{
+                echo 201;
+            }
 
-            $_SESSION['message'] = "Thành công! ";
-            header('Location: ../my-orders.php');
-            die();
+
+          
         }
 
     }

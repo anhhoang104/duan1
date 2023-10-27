@@ -30,28 +30,31 @@ include('includes/header.php');
                 ?>
                 <div class="card">
                     <div class="card-header">
-                        <h4>Đăng nhập</h4>
+                        <h4>Đặt lại mật khẩu</h4>
                     </div>
                     <div class="card-body">
+
+
+
                         <form action="function/authcode.php" method="POST">
-
-
-
-                            <div class="mb-3">
+                            <input type="hidden" name="password_token" value="<?php if(isset($_GET['token'])){echo $_GET['token']; } ?>">    
+                        <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Nhập Email..."
+                                <input type="email" name="email" value="<?php if(isset($_GET['email'])){echo $_GET['email'];} ?>" class="form-control" placeholder="Nhập Email..."
                                     id="exampleInputPassword1">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
-                                <input type="password" name="password" class="form-control"
-                                    placeholder="Nhập mật khẩu..." id="exampleInputPassword1">
+                                <label for="exampleInputPassword1" class="form-label">Mật khẩu mới</label>
+                                <input type="password" name="new_password" class="form-control" placeholder="Nhập Email..."
+                                    id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu mới</label>
+                                <input type="password" name="comfirm_password" class="form-control" placeholder="Nhập Email..."
+                                    id="exampleInputPassword1">
                             </div>
                             <div>
-                                <span>Bạn bị quên mật khẩu? <a href="password-reset.php">Quên mật khẩu</a></span>
-                            </div>
-                            <div>
-                                <button type="submit" name="login_btn" class="btn btn-primary">Đăng nhập</button>
+                                <button type="submit" name="password-update" class="btn btn-primary">Cập nhật</button>
 
                             </div>
                         </form>
