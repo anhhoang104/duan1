@@ -6,6 +6,12 @@ session_start();
 
 include('../admin/config/dbcon.php');
 
+function redirect($url, $message)
+{
+    $_SESSION['message'] = $message;
+    header('Location:' . $url);
+    exit(0);
+}
 use PHPMailer\PHPMailer\PHPMailer;
 
 function send_password_reset($username, $useremail, $token)
@@ -98,13 +104,32 @@ if (isset($_POST['register_btn'])) {
 if (isset($_POST['login_btn'])) {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, md5($_POST['password']));
+    // Kiểm tra xem đã có biến phiên lưu số lần đăng nhập không thành công hay chưa
+    if (!isset($_SESSION['login_attempts'])) {
+        $_SESSION['login_attempts'] = 0; // Nếu chưa có, khởi tạo là 0
+        $_SESSION['last_login_attempt_time'] = time(); // Lưu thời gian cuối cùng cố gắng đăng nhập
+    }
+    $reset_time = 60; // Thời gian tạm khóa (1 phút)
+    // Kiểm tra số lần đăng nhập không thành công và thời gian cuối cùng
+    $current_time = time();
+    if ($current_time - $_SESSION['last_login_attempt_time'] >= $reset_time) {
+        // Nếu đã qua đủ thời gian tạm khóa, reset login_attempts về 0
+        $_SESSION['login_attempts'] = 0;
+    }
+    // Kiểm tra số lần đăng nhập không thành công
+    if ($_SESSION['login_attempts'] >= 5) {
+        // Nếu số lần vượt quá 5, thông báo và không cho đăng nhập nữa
+        $_SESSION['message'] = "Số lần đăng nhập không thành công quá nhiều. Hãy thử lại sau.";
+        header('Location: ../login.php');
+        exit;
+    }
 
     $login_query = "Select * from users where email = '$email' and password = '$password' ";
     $login_query_run = mysqli_query($con, $login_query);
 
     if (mysqli_num_rows($login_query_run) > 0) {
 
-        $_SESSION['auth'] = true;
+
 
 
         $userdata = mysqli_fetch_array($login_query_run);
@@ -112,7 +137,14 @@ if (isset($_POST['login_btn'])) {
         $username = $userdata['name'];
         $useremail = $userdata['email'];
         $type = $userdata['type']; // lấy type trong sql
+        $status = $userdata['status'];
+        if ($status == 1) {
+            $_SESSION['message'] = "Tài khoản bạn đã bị khóa.Hãy liên hệ với quản trị để mở khóa tài khoản: <a href=\"mailto:nguyenvanducan2000@gmail.com\">Gửi email</a>";
 
+            header('Location: ../login.php');
+            exit;
+        }
+        $_SESSION['auth'] = true;
         $_SESSION['auth_user'] = [
             'user_id' => $userid,
             'name' => $username,
@@ -131,7 +163,14 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['message'] = "Đăng nhập thành công";
             header('Location: ../index.php');
         }
+
+        // Reset số lần đăng nhập không thành công và thời gian cuối cùng
+        $_SESSION['login_attempts'] = 0;
+        $_SESSION['last_login_attempt_time'] = $current_time;
     } else {
+        $_SESSION['last_login_attempt_time'] = $current_time;
+        $_SESSION['login_attempts']++; // Tăng số lần đăng nhập không thành công
+
         $_SESSION['message'] = "Đăng nhập không thành công";
         header('Location: ../login.php');
     }
@@ -197,8 +236,8 @@ if (isset($_POST['password-update'])) {
                     $update_password_run = mysqli_query($con, $update_password);
 
                     if ($update_password_run) {
-                        
-                        $_SESSION['message'] = "Cập nhật mật khẩu thành công! Hãy đăng nhập lại";          
+
+                        $_SESSION['message'] = "Cập nhật mật khẩu thành công! Hãy đăng nhập lại";
                         header("Location:../login.php");
                         exit(0);
                     } else {
@@ -230,6 +269,85 @@ if (isset($_POST['password-update'])) {
         header('Location:../password-change.php');
         exit(0);
     }
+}
+
+if (isset($_POST['disabled_account'])) {
+
+    $id_user = mysqli_real_escape_string($con, $_POST['id_user']);
+    $value_disabled_account = mysqli_real_escape_string($con, $_POST['disabled_account']);
+
+    $disabled_account_query = "UPDATE users SET status = '$value_disabled_account' WHERE id_user = '$id_user'";
+    $disabled_account_query_run = mysqli_query($con, $disabled_account_query);
+
+    if ($disabled_account_query_run) {
+
+        if (isset($_SESSION['auth'])) {
+            unset($_SESSION['auth']);
+            redirect('../index.php', "Bạn đã khóa tài khoản");
+        }
+
+    } else {
+        redirect('../account.php', "Không thể khóa tài khỏan");
+    }
+
+}
+if (isset($_POST['update_account'])) {
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $phone = mysqli_real_escape_string($con, $_POST['phone']);
+    // $old_email = mysqli_real_escape_string($con, $_POST['old_email']);
+
+    $update_query = "UPDATE users SET name = '$name', phone = '$phone' WHERE email = '$email' ";
+    $update_query_run = mysqli_query($con, $update_query);
+
+    if ($update_query_run) {
+        // Cập nhật thành công
+        redirect('../account.php', "Cập nhật thông tin thành công.");
+        // $_SESSION['message'] = "Cập nhật thông tin thành công.";
+    } else {
+        // Cập nhật không thành công
+        redirect('../account.php', "Cập nhật thông tin không thành công.");
+        // $_SESSION['message'] = "Cập nhật thông tin không thành công.";
+    }
+
+}
+
+if (isset($_POST["update_password"])) {
+
+    $email = mysqli_real_escape_string($con, $_POST["email"]);
+    $old_password = mysqli_real_escape_string($con, md5($_POST['old_password']));
+    $new_password = mysqli_real_escape_string($con, md5($_POST['new_password']));
+    $comfirm_password = mysqli_real_escape_string($con, md5($_POST['comfirm_password']));
+
+
+
+    $check_pass = "SELECT password FROM users WHERE password = '$old_password'";
+    $check_pass_run = mysqli_query($con, $check_pass);
+
+    if (mysqli_num_rows($check_pass_run) == 0) {
+        // $_SESSION['message_pass'] = "Mật khẩu cũ không đúng.";
+        redirect('../account.php', "Mật khẩu cũ không đúng.");
+    } else {
+        if ($new_password == $comfirm_password) {
+            $update_pass = "UPDATE users SET password = '$comfirm_password' WHERE email = '$email' LIMIT 1 ";
+            $update_pass_run = mysqli_query($con, $update_pass);
+            if ($update_pass_run) {
+                if (isset($_SESSION['auth'])) {
+                    unset($_SESSION['auth']);
+                    redirect('../index.php', "Đổi mật khẩu thành công. Hãy đăng nhập lại");
+                }
+
+
+            } else {
+                redirect('../account.php', "Đổi mật khẩu không thành công.");
+            }
+
+        } else {
+            redirect('../account.php', "Nhập lại mật khẩu mới không đúng.");
+        }
+
+    }
+
 }
 
 ?>
