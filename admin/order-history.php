@@ -47,7 +47,8 @@ include('../middleware/adminMiddleware.php');
                                             <?= $item['tracking_no'] ?>
                                         </td>
                                         <td>
-                                            <?= $item['total_price'] ?>
+                                        <?= number_format($item['total_price'], 0, ',', '.') ?> 
+                                            <!-- <?= $item['total_price'] ?> -->
                                         </td>
                                         <td>
                                             <?= date('H:i - d/m/Y', strtotime($item['created_at'])) ?>

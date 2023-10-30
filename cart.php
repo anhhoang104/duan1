@@ -67,7 +67,7 @@ include('authenticate.php');
                                         </div>
                                         <div class="col-md-2">
                                             <h5>
-                                                <?= $citem['price'] ?>
+                                               <?= number_format($citem['price'], 0, ',', '.') ?>
                                             </h5>
                                         </div>
                                         <div class="col-md-2">

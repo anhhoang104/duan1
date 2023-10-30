@@ -25,7 +25,7 @@ function getOrdersHistory()
 {
     global $con;
     // $query = "SELECT o.*, u.name FROM orders o,users u where status='0' AND o.user_id = u.id_user ";
-    $query = "SELECT * FROM orders WHERE status != '0'";
+    $query = "SELECT * FROM orders WHERE status != '0' AND status != '2'";
     return $query_run = mysqli_query($con, $query);
 }
 

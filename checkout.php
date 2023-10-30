@@ -105,7 +105,7 @@ if(mysqli_num_rows($cartItems) == 0){
                                         </div>
                                         <div class="col-md-3">
                                             <label for="">
-                                                <?= $citem['price'] ?>
+                                             <?= number_format($citem['price'], 0, ',', '.') ?>
                                             </label>
                                         </div>
                                     </div>
@@ -113,11 +113,13 @@ if(mysqli_num_rows($cartItems) == 0){
 
 
                                 <?php
+                                
                                 $totalPrice += $citem['price'] * $citem['prod_qty'];
+
                             }
                             ?>
                             <h5 style="font-weight: bold;"> Tổng giá: <span class="float-end">
-                                    <?= $totalPrice ?> VNĐ
+                                    <?= number_format($totalPrice, 0, ',', '.') ?> VNĐ
                                 </span>
                             </h5>
                             <div class="">

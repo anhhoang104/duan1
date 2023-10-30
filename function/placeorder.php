@@ -2,6 +2,47 @@
 session_start();
 include('../admin/config/dbcon.php');
 
+use PHPMailer\PHPMailer\PHPMailer;
+function  send_order_mail($name,$email,$phone){
+    $body = "
+    <h2>Cảm ơn $name đã đặt hàng tại NoiThatViet</h2>
+    <h3>Chúng tôi sẽ liên hệ tới số điện thoại: $phone để xác nhận đơn hàng! </h3> 
+    <br><hr>
+    <span style='color: red'> Chân thành cảm ơn! </span>
+    ";
+    
+   
+$subject = 'Đặt hàng thành công';
+
+require_once "../PHPMailer/PHPMailer.php";
+require_once "../PHPMailer/SMTP.php";
+require_once "../PHPMailer/Exception.php";
+$mail = new PHPMailer();
+$mail->CharSet = 'UTF-8';
+$mail->isSMTP();
+$mail->Host = "smtp.gmail.com"; // smtp address of your email
+$mail->SMTPAuth = true;
+$mail->Username = '19004002@st.vlute.edu.vn';
+$mail->Password = 'tvwdnotidmkwhfor';
+$mail->Port = 587; // port
+$mail->SMTPSecure = "tls"; // tls or ssl
+$mail->smtpConnect([
+    'ssl' => [
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    ]
+]);
+
+$mail->isHTML(true);
+$mail->setFrom('19004002@st.vlute.edu.vn', 'NoiThatViet');
+$mail->addAddress($email); // enter email address whom you want to send
+$mail->Subject = ("$subject");
+$mail->Body = $body;
+$mail->send();
+
+}
+
 if (isset($_SESSION['auth'])) {
 
     if (isset($_POST['placeOrderBtn'])) {
@@ -72,12 +113,18 @@ if (isset($_SESSION['auth'])) {
             $deleteCartQuery_run = mysqli_query($con,$deleteCartQuery);
 
             if($payment_mode == "Thanh toán khi nhận hàng") {
+                
+                
+                send_order_mail($name,$email,$phone);
+                
                 $_SESSION['message'] = "Thành công! ";
                 header('Location: ../my-orders.php');
                 die();
+          
             }else{
                 echo 201;
             }
+            
 
 
           

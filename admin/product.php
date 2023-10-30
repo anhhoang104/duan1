@@ -18,7 +18,7 @@ include('../middleware/adminMiddleware.php');
                                 <th>ID</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Hình ảnh</th>
-                                <th>Giá</th>
+                                <th>Giá (VNĐ)</th>
                                 <th>Số lượng</th>
                                 <th>Trạng thái</th>
                                 <th>Tùy chỉnh</th>
@@ -43,7 +43,8 @@ include('../middleware/adminMiddleware.php');
                                             
                                         </td>
                                         <td>
-                                            <?= $item['price'] ?>
+                                        <?= number_format($item['price'], 0, ',', '.') ?> 
+                                            <!-- <?= $item['price'] ?> -->
                                         </td>
                                         <td>
                                             <?= $item['quantity'] ?>

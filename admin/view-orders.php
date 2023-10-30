@@ -33,7 +33,7 @@ $data = mysqli_fetch_array($orderData);
                 <div class="card-header bg-primary">
                     <span class="text-white fs-3">Chi tiết đơn hàng</span>
 
-                    <a href="orders.php" class="btn btn-warning float-end"><i class="fa fa-reply"></i> Trở
+                    <a href="order-history.php" class="btn btn-warning float-end"><i class="fa fa-reply"></i> Trở
                         về</a>
                 </div>
                 <div class="card-body">
@@ -77,7 +77,7 @@ $data = mysqli_fetch_array($orderData);
                                         <th>Sản phẩm</th>
                                         <th>Hình ảnh</th>
                                         <th>Số lượng</th>
-                                        <th>Giá</th>
+                                        <th>Giá (VNĐ)</th>
 
                                     </tr>
                                 </thead>
@@ -105,7 +105,8 @@ $data = mysqli_fetch_array($orderData);
                                                     <?= $item['qty'] ?>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <?= $item['price'] ?> 
+                                                <?= number_format($item['price'], 0, ',', '.') ?> 
+                                                    <!-- <?= $item['price'] ?>  -->
                                                 </td>
                                             </tr>
                                             <?php
@@ -118,7 +119,8 @@ $data = mysqli_fetch_array($orderData);
                             </table>
                             <hr>
                             <h4>Tổng giá : <span class="float-end fw-bold">
-                                    <?= $data['total_price']; ?> VNĐ
+                            <?= number_format($data['total_price'], 0, ',', '.') ?> VNĐ
+                                    <!-- <?= $data['total_price']; ?> VNĐ -->
                                 </span></h4>
                             <hr>
                             <div class="border p-1 mb-3 fw-bold">

@@ -7,13 +7,14 @@ include('../middleware/adminMiddleware.php');
 
 // include('function/handlecart.php') ?>
 
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-primary">
                     <h4 class="text-white fs-3">Đơn hàng
-                        <a href="order-history.php" class="btn btn-info float-end">Lịch sử đơn hàng</a>
+                        <a href="order-history.php" class="btn btn-info float-end">Đơn hàng đã hoàn thành</a> <!-- Lịch sử đơn hàng -->
                     </h4>
                 </div>
                 <div class="card-body">
@@ -46,7 +47,8 @@ include('../middleware/adminMiddleware.php');
                                             <?= $item['tracking_no'] ?>
                                         </td>
                                         <td>
-                                            <?= $item['total_price'] ?>
+                                        <?= number_format($item['total_price'], 0, ',', '.') ?> 
+                                            <!-- <?= $item['total_price'] ?> -->
                                         </td>
                                         <td>
                                             <?= date('H:i - d/m/Y', strtotime($item['created_at'])) ?>

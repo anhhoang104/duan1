@@ -52,7 +52,7 @@ if (isset($_GET['productid'])) {
                         </h4>
                         <h6 class=" text-danger mt-3" style="font-weight: bold; ">
 
-                            <?= $product['price'] ?>
+                            <?= number_format($product['price'], 0, ',', '.') ?>
 
                             VNĐ
 

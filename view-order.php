@@ -123,7 +123,8 @@ $data = mysqli_fetch_array($orderData);
                                                             <?= $item['qty'] ?>
                                                         </td>
                                                         <td class="align-middle">
-                                                            <?= $item['price'] ?>
+                                                            <!-- <?= $item['price'] ?> -->
+                                                            <?= number_format($item['price'], 0, ',', '.') ?> VNĐ
                                                         </td>
                                                     </tr>
                                                     <?php
@@ -136,7 +137,8 @@ $data = mysqli_fetch_array($orderData);
                                     </table>
                                     <hr>
                                     <h4>Tổng giá : <span class="float-end fw-bold">
-                                            <?= $data['total_price']; ?> VNĐ
+                                            <!-- <?= $data['total_price']; ?> VNĐ -->
+                                            <?= number_format($data['total_price'], 0, ',', '.') ?> VNĐ
                                         </span></h4>
                                     <hr>
                                     <div class="border p-1 mb-3 fw-bold">

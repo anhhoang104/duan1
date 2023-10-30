@@ -350,4 +350,37 @@ if (isset($_POST["update_password"])) {
 
 }
 
+if(isset($_POST['admin_disabled_account'])){
+
+    $id_user = mysqli_real_escape_string($con, $_POST["id_user"]);
+    $name = mysqli_real_escape_string($con, $_POST["name"]);
+
+    $disabled_account_query = "UPDATE users SET status = '1' WHERE id_user = '$id_user'";
+    $disabled_account_query_run = mysqli_query($con, $disabled_account_query);
+
+    if ($disabled_account_query_run) {
+        redirect('../admin/user-account.php', "Bạn đã khóa tài khoản với tên $name");
+    }else{
+        redirect('../admin/user-account.php', "Không thể khóa tài khoản");
+    }
+
+
+
+}
+
+if(isset($_POST["admin_enabled_account"])){
+    $id_user = mysqli_real_escape_string($con, $_POST["id_user"]);
+    $name = mysqli_real_escape_string($con, $_POST["name"]);
+
+    $enable_account_query = "UPDATE users SET status = '0' WHERE id_user = '$id_user'";
+    $enabled_account_query_run = mysqli_query($con, $enable_account_query);
+
+    if ($enabled_account_query_run) {
+        redirect('../admin/user-account.php', "Bạn đã mở khóa tài khoản với tên $name");
+    }else{
+        redirect('../admin/user-account.php', "Không thể mở khóa tài khoản");
+    }
+}
+
+
 ?>
