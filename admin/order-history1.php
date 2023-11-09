@@ -12,7 +12,7 @@ include('../middleware/adminMiddleware.php');
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-primary">
-                    <h4 class="text-white fs-3">Đơn hàng đã hoàn thành
+                    <h4 class="text-white fs-3">Đơn hàng đã hủy
                         <a href="orders.php" class="btn btn-warning float-end"><i class="fa fa-reply"></i> Trở
                             về</a>
                     </h4>
@@ -31,7 +31,7 @@ include('../middleware/adminMiddleware.php');
                         </thead>
                         <tbody class="table-group-divider">
                             <?php
-                            $orders = getOrdersHistory();
+                            $orders = getOrdersHistory1();
 
                             if (mysqli_num_rows($orders) > 0) {
                                 foreach ($orders as $item) {
@@ -65,7 +65,7 @@ include('../middleware/adminMiddleware.php');
                                 ?>
                                 <tr>
                                     <td>
-                                    <td colspan="5">Bạn chưa mua sản phẩm nào</td>
+                                    <td colspan="5"> Chưa có đơn hàng nào bị hủy</td>
                                     </td>
                                 </tr>
                                 <?php

@@ -14,7 +14,10 @@ include('../middleware/adminMiddleware.php');
             <div class="card">
                 <div class="card-header bg-primary">
                     <h4 class="text-white fs-3">Đơn hàng
-                        <a href="order-history.php" class="btn btn-info float-end">Đơn hàng đã hoàn thành</a> <!-- Lịch sử đơn hàng -->
+                        <a href="order-history1.php" class="btn btn-danger float-end mx-2">Đơn hàng đã hủy</a>
+                        <a href="order-history.php" class="btn btn-info float-end">Đơn hàng đã hoàn thành</a>
+                        <!-- Lịch sử đơn hàng -->
+
                     </h4>
                 </div>
                 <div class="card-body">
@@ -47,7 +50,7 @@ include('../middleware/adminMiddleware.php');
                                             <?= $item['tracking_no'] ?>
                                         </td>
                                         <td>
-                                        <?= number_format($item['total_price'], 0, ',', '.') ?> 
+                                            <?= number_format($item['total_price'], 0, ',', '.') ?>
                                             <!-- <?= $item['total_price'] ?> -->
                                         </td>
                                         <td>
