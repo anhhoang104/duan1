@@ -22,7 +22,8 @@
     <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" /> -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/themes/default.min.css" /> -->
 
 
     <title>Nội thất Việt</title>
@@ -56,6 +57,26 @@
         .bg-f2f2f2 {
             background-color: #f2f2f2;
         }
+
+        div.wishlist {
+            opacity: 0; 
+            transform: translateY(-20px);
+            /* Di chuyển xuống khỏi vị trí hiển thị */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hiển thị div.wishlist khi hover vào div.card-body */
+        div.card-body:hover div.wishlist {
+            
+            opacity: 1;
+            transform: translateY(0);
+        }
+        button.delete-icon {
+            border: none;
+            outline: none;
+            background: none;
+        }
+        
     </style>
 
 </head>

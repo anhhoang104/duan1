@@ -20,7 +20,7 @@
           <a class="nav-link" href="category.php">Danh mục</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Yêu thích</a>
+          <a class="nav-link" href="wishlist.php">Yêu thích</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Giới thiệu</a>

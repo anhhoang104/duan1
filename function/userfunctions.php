@@ -27,6 +27,16 @@ function getProductbyCid($table, $cid)
     $query = "SELECT * FROM $table WHERE catid = '$cid'";
     return $query_run = mysqli_query($con, $query);
 }
+function getWishlistItems() {
+    global $con;
+    $user_id = $_SESSION['auth_user']['user_id'];
+    $query = "SELECT wishlist.*, product.image, product.productName , product.price
+    FROM wishlist 
+    JOIN product ON wishlist.prod_id = product.id 
+    WHERE wishlist.user_id = $user_id";
+    $result = mysqli_query($con, $query);
+    return $result;
+}
 function getCartItems()
 {
     global $con;

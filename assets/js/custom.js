@@ -98,5 +98,47 @@ $(document).ready(function () {
 
     });
 
+    $(document).on('click', '.AddtoWishlist', function (e) {
+        e.preventDefault();
+        var prod_id = $(this).val();
+        $.ajax({
+            method: "POST",
+            url: "function/handlecart.php",
+            data: {
+                "prod_id": prod_id,
+                "scope": "wishlist"
+            },
+            success: function (response) {
+
+                $("#message").html(response);
+              
+
+            }
+        });
+
+
+    });
+    $(document).on('click', '.delete-wishlist', function () {
+        var wishlist_id = $(this).val();
+        $.ajax({
+            method: "POST",
+            url: "function/handlecart.php",
+            data: {
+                "wishlist_id": wishlist_id,
+                "scope": "delete_wishlist"
+            },
+            success: function (response) {
+
+                $("#message").html(response);
+              
+                $('#wishlist').load(location.href + " #wishlist"); // load lại cái id mycart
+
+            }
+        });
+
+
+    });
+    
+
 
 });

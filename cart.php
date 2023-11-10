@@ -104,7 +104,8 @@ include('authenticate.php');
                     <?php
                     }else{
                         ?>
-                        <div class="card card-body text-center shadow">
+                    
+                        <div class="card card-body text-center shadow" >
                             <h4 class="py-3">Giỏ hàng trống!</h4>
                         </div>
                         <?php

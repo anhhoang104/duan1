@@ -73,7 +73,12 @@ if (isset($_GET['category'])) {
 
                             }
                         } else {
-                            echo "Danh mục không có sản phẩm";
+                            ?>
+                            <div class=" text-center " style=" height: 100vh;">
+                                <h4 class=" text-info fs-2 fw-bold">Danh mục không có sản phẩm!</h4>
+                            </div>
+                            <?php
+                            // echo "Danh mục không có sản phẩm";
                         }
 
                         ?>

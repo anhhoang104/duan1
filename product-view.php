@@ -74,12 +74,13 @@ if (isset($_GET['productid'])) {
                                         hàng</i></button>
                             </div>
                             <div class="col-md-6">
-                                <button class="btn btn-danger px-4"> <i class="fa fa-heart me-2"> Sản phẩm yêu
+                                <button class="btn btn-danger px-4 AddtoWishlist" value="<?= $product['id'] ?>"> <i
+                                        class="fa fa-heart me-2"> Sản phẩm yêu
                                         thích</i></button>
                             </div>
                         </div>
                         <hr>
-                        <div  >
+                        <div>
                             <h4 class="fw-bold">Chi tiết sản phẩm</h4>
                             <h6 style="word-wrap: break-word; overflow-wrap: break-word;width: 60ch; ">
                                 <?= $product['product_desc'] ?>
@@ -92,7 +93,12 @@ if (isset($_GET['productid'])) {
 
         <?php
     } else {
-        echo "Sản phẩm không tồn tại";
+        ?>
+        <div class="card card-body text-center shadow" style=" height: 100vh;">
+            <h4 class="py-3 text-danger fs-1 fw-bold" >Sản phẩm không tồn tại!</h4>
+        </div>
+        <?php
+
     }
 } else {
     echo "Bị lỗi rồi!";
