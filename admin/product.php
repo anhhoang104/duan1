@@ -8,7 +8,9 @@ include('../middleware/adminMiddleware.php');
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-primary">
-                    <h4 class="text-white">Sản phẩm</h4>
+                    <h4 class="text-white">Sản phẩm
+                    <a href="add-product.php" class="btn btn-info float-end">Thêm sản phẩm</a>
+                    </h4>
                 </div>
                 <div class="card-body" id="product_table">
                     <table class="table table-bordered table-striped">

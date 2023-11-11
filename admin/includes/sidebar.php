@@ -30,35 +30,35 @@
         <li class="nav-item">
           <a class="nav-link text-white  <?= $page =="category.php"?'active bg-gradient-primary':''; ?>" href="category.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10">category</i>
             </div>
             <span class="nav-link-text ms-1">Danh mục</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link text-white  <?= $page =="add-category.php"?'active bg-gradient-primary':''; ?>" href="add-category.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">add</i>
             </div>
             <span class="nav-link-text ms-1">Thêm danh mục</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link text-white  <?= $page =="brand.php"?'active bg-gradient-primary':''; ?>" href="brand.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10">featured_play_list</i>
             </div>
             <span class="nav-link-text ms-1">Phân loại </span>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link text-white  <?= $page =="add-brand.php"?'active bg-gradient-primary':''; ?>" href="add-brand.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">add</i>
             </div>
             <span class="nav-link-text ms-1">Thêm phân loại</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link text-white  <?= $page =="product.php"?'active bg-gradient-primary':''; ?>" href="product.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -67,18 +67,18 @@
             <span class="nav-link-text ms-1">Sản phẩm</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link text-white  <?= $page =="add-product.php"?'active bg-gradient-primary':''; ?>" href="add-product.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">add</i>
             </div>
             <span class="nav-link-text ms-1">Thêm sản phẩm</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link text-white  <?= $page =="orders.php"?'active bg-gradient-primary':''; ?>" href="orders.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10">shop_two</i>
             </div>
             <span class="nav-link-text ms-1">Đơn hàng</span>
           </a>
@@ -86,9 +86,25 @@
         <li class="nav-item">
           <a class="nav-link text-white  <?= $page =="user-account.php"?'active bg-gradient-primary':''; ?>" href="user-account.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10">person</i>
             </div>
             <span class="nav-link-text ms-1">Tài khoản người dùng</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white  <?= $page =="shipping-unit.php"?'active bg-gradient-primary':''; ?>" href="shipping-unit.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">local_shipping</i>
+            </div>
+            <span class="nav-link-text ms-1">Đơn vị vận chuyển</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white  <?= $page =="shipping_unit.php"?'active bg-gradient-primary':''; ?>" href="shipping_unit.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">confirmation_number</i>
+            </div>
+            <span class="nav-link-text ms-1">Mã giảm giá</span>
           </a>
         </li>
       </ul>

@@ -8,7 +8,10 @@ include('../middleware/adminMiddleware.php');
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-primary">
-                    <h4 class="text-white">Thêm sản phẩm</h4>
+                    <h4 class="text-white">Thêm sản phẩm
+                    <a href="product.php" class="btn btn-warning float-end"><i class="fa fa-reply"></i> Trở
+                            về</a>
+                    </h4>
                 </div>
                 <div class="card-body">
                     <form action="code.php" method="POST" enctype="multipart/form-data">

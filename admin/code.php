@@ -31,7 +31,7 @@ include('../function/myfunctions.php');
 //         }
 //     }
 // }
- if (isset($_POST['add_category_btn'])) {
+if (isset($_POST['add_category_btn'])) {
     $name = $_POST['name'];
     $image = $_FILES['image']['name'];
 
@@ -109,7 +109,7 @@ else if (isset($_POST['edit_category_btn'])) {
         // Tên danh mục đã tồn tại, xuất thông báo lỗi
         redirect("edit-category.php?id=$category_id", "Tên danh mục đã tồn tại");
     } else {
-        $update_filename = '';  // Biến để lưu tên tệp ảnh mới
+        $update_filename = ''; // Biến để lưu tên tệp ảnh mới
 
         // Kiểm tra xem có tải lên ảnh mới không
         if ($_FILES['image']['name'] != "") {
@@ -150,7 +150,6 @@ else if (isset($_POST['edit_category_btn'])) {
 //         redirect("category.php", "Xóa danh mục thất bại");
 //     }
 // }
-
 else if (isset($_POST['delete_category'])) {
     $category_id = mysqli_real_escape_string($con, $_POST['category_id']);
 
@@ -254,8 +253,6 @@ else if (isset($_POST['delete_brand'])) {
 //end xóa thương hiệu
 
 // thêm sản phẩm
-
-
 else if (isset($_POST['add_product_btn'])) {
     $name = $_POST['name'];
     $catid = $_POST['catid'];
@@ -301,7 +298,7 @@ else if (isset($_POST['delete_product_btn'])) {
     $product_id = mysqli_real_escape_string($con, $_POST['product_id']);
 
     $product_query = "SELECT * FROM product WHERE id='$product_id'";
-    $product_query_run = mysqli_query($con,$product_query);
+    $product_query_run = mysqli_query($con, $product_query);
     $product_data = mysqli_fetch_array($product_query_run);
     $image = $product_data['image'];
 
@@ -310,9 +307,8 @@ else if (isset($_POST['delete_product_btn'])) {
     $delete_query_run = mysqli_query($con, $delete_query);
 
     if ($delete_query_run) {
-        if(file_exists("../uploads/".$image))
-        {
-            unlink("../uploads/".$image);
+        if (file_exists("../uploads/" . $image)) {
+            unlink("../uploads/" . $image);
         }
         // redirect("product.php", "Xóa sản phẩm thành công");
         echo 200;
@@ -345,30 +341,30 @@ else if (isset($_POST['edit_product_btn'])) {
 
     if ($new_image != "") {
         $image_ext = pathinfo($new_image, PATHINFO_EXTENSION);
-        $update_filename = time() .'.'.$image_ext;
+        $update_filename = time() . '.' . $image_ext;
     } else {
         $update_filename = $old_image;
     }
 
 
-        $update_product_query = "UPDATE product SET productName = '$name', catid = '$catid',brandid = '$brandid',product_desc = '$desc', image = '$update_filename',quantity = '$quantity', trending ='$trending', price = '$price' WhERE id = '$product_id' ";
-        $update_product_query_run = mysqli_query($con, $update_product_query);
+    $update_product_query = "UPDATE product SET productName = '$name', catid = '$catid',brandid = '$brandid',product_desc = '$desc', image = '$update_filename',quantity = '$quantity', trending ='$trending', price = '$price' WhERE id = '$product_id' ";
+    $update_product_query_run = mysqli_query($con, $update_product_query);
 
-        if ($update_product_query_run) {
-            if ($_FILES['image']['name'] != "") {
-                move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$update_filename);
-                if (file_exists("../uploads/".$old_image)) {
-                    unlink("../uploads/".$old_image);
-                }
+    if ($update_product_query_run) {
+        if ($_FILES['image']['name'] != "") {
+            move_uploaded_file($_FILES['image']['tmp_name'], $path . '/' . $update_filename);
+            if (file_exists("../uploads/" . $old_image)) {
+                unlink("../uploads/" . $old_image);
             }
-            redirect("edit-product.php?id=$product_id", "Cập nhật sản phẩm thành công");
-        } else {
-            redirect("edit-product.php?id=$product_id", "Cập nhật sản phẩm thất bại");
         }
-    
+        redirect("edit-product.php?id=$product_id", "Cập nhật sản phẩm thành công");
+    } else {
+        redirect("edit-product.php?id=$product_id", "Cập nhật sản phẩm thất bại");
+    }
+
 }
 //Cập nhật trạng thái đơn hàng
-else if(isset($_POST['update_order_btn'])){
+else if (isset($_POST['update_order_btn'])) {
     $track_no = $_POST['tracking_no'];
     $order_status = $_POST['order_status'];
 
@@ -380,10 +376,6 @@ else if(isset($_POST['update_order_btn'])){
 } else {
     header('Location: ../index.php');
 }
-
-
-
-
 
 
 
