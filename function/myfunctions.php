@@ -51,5 +51,10 @@ function checkTrackingNoValid($tracking_no)
     return $query_run = mysqli_query($con, $query);
 }
 
+function checkMessage($id){
+    global $con;
+    $query = "SELECT * FROM helpper WHERE id = '$id'";
+    return $query_run = mysqli_query($con, $query);
+}
 
 ?>

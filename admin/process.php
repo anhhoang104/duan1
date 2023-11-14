@@ -28,6 +28,46 @@ if (isset($_POST['add_shipping_btn'])) {
         }
     }
 }
+if (isset($_POST["delete_shipping"])) {
+
+    $ship_id = mysqli_real_escape_string($con, $_POST['ship_id']);
+
+    $delete_query = "delete from shipping_unit where id = '$ship_id'";
+    $delete_query_run = mysqli_query($con, $delete_query);
+
+    if ($delete_query_run) {
+        redirect("shipping-unit.php", "Xóa đơn vị vận chuyển thành công");
+    } else {
+        redirect("shipping-unit.php", "Xóa đơn vị vận chuyển thất bại");
+    }
+}
+if (isset($_POST['edit_ship_btn'])) {
+    $name_ship = $_POST['name_ship'];
+    $ship_id = $_POST['ship_id'];
+    $price = $_POST['price'];
+
+
+    //kiem tra ten thương hiệu
+
+    $check_query = "select * from shipping_unit where name_ship = '$name_ship' AND price = '$price'";
+    $check_result = mysqli_query($con, $check_query);
+
+    if (mysqli_num_rows($check_result) > 0) {
+        redirect("edit-shipping-unit.php?id=$ship_id", "Tên đơn vị vận chuyển đã tồn tại");
+    } else {
+        $update_query = "update shipping_unit set name_ship = '$name_ship', price = '$price' where id = '$ship_id' ";
+        $update_query_run = mysqli_query($con, $update_query);
+        if ($update_query_run) {
+            redirect("shipping-unit.php", "Cập nhật đơn vị vận chuyển thành công!");
+
+        } else {
+            redirect("edit-shipping-unit.php?id=$ship_id", "Cập nhật phân loại thất bại");
+        }
+
+    }
+
+}
+
 
 
 

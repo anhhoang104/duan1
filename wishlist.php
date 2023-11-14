@@ -25,8 +25,8 @@ include('authenticate.php');
         <div class="col-md-12">
             <div class="text-center">
                 <h4> Sản phẩm bạn đã yêu thích</h4>
-
             </div>
+            <div id="message" class="message"></div>
 
             <hr>
             <div class="row" id="wishlist">

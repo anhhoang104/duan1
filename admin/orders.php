@@ -24,7 +24,7 @@ include('../middleware/adminMiddleware.php');
                     <table class="table  table-hover ">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <!-- <th>ID</th> -->
                                 <th>Người dùng</th>
                                 <th>Mã đơn hàng</th>
                                 <th>Giá (VNĐ)</th>
@@ -40,9 +40,9 @@ include('../middleware/adminMiddleware.php');
                                 foreach ($orders as $item) {
                                     ?>
                                     <tr>
-                                        <td>
+                                        <!-- <td>
                                             <?= $item['id'] ?>
-                                        </td>
+                                        </td> -->
                                         <td>
                                             <?= $item['name'] ?>
                                         </td>

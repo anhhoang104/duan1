@@ -100,13 +100,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white  <?= $page =="shipping_unit.php"?'active bg-gradient-primary':''; ?>" href="shipping_unit.php">
+          <a class="nav-link text-white  <?= $page =="message.php"?'active bg-gradient-primary':''; ?>" href="message.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">confirmation_number</i>
+              <i class="material-icons opacity-10"> question_answer</i>
             </div>
-            <span class="nav-link-text ms-1">Mã giảm giá</span>
+            <span class="nav-link-text ms-1">Tin nhắn trợ giúp</span>
           </a>
         </li>
+      
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">

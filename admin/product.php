@@ -17,7 +17,7 @@ include('../middleware/adminMiddleware.php');
                         <thead>
                             <tr>
 
-                                <th>ID</th>
+                                <!-- <th>ID</th> -->
                                 <th>Tên sản phẩm</th>
                                 <th>Hình ảnh</th>
                                 <th>Giá (VNĐ)</th>
@@ -33,9 +33,9 @@ include('../middleware/adminMiddleware.php');
                                 foreach ($product as $item) {
                                     ?>
                                     <tr>
-                                        <td>
+                                        <!-- <td>
                                             <?= $item['id'] ?>
-                                        </td>
+                                        </td> -->
                                         <td>
                                             <?= $item['productName'] ?>
                                         </td>

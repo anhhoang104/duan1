@@ -18,7 +18,7 @@ include('../middleware/adminMiddleware.php');
                         <thead>
                             <tr>
 
-                                <th>ID</th>
+                                <!-- <th>ID</th> -->
                                 <th>Tên danh mục</th>
                                 <th>Tùy chỉnh</th>
                             </tr>
@@ -30,9 +30,9 @@ include('../middleware/adminMiddleware.php');
                                 foreach ($category as $item) {
                                     ?>
                                     <tr>
-                                        <td>
+                                        <!-- <td>
                                             <?= $item['id'] ?>
-                                        </td>
+                                        </td> -->
                                         <td>
                                             <?= $item['name'] ?>
                                         </td>

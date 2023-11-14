@@ -63,6 +63,28 @@ if(mysqli_num_rows($cartItems) == 0){
                                         placeholder="Nhập địa chỉ..." class="form-control"></textarea>
                                     <small class="text-danger address"></small>
                                 </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="fw-bold">Hình thức vận chuyển:</label>
+                                    <select class="form-select" name="shipping">
+                                            <option selected>Chọn đơn vị vận chuyển </option>
+                                            <?php
+                                            $shipping = getAll("shipping_unit");
+                                            if (mysqli_num_rows($shipping) > 0) {
+                                                foreach ($shipping as $item) {
+                                                    // $selected = ($data['catid'] == $item['id']) ? 'selected' : '';
+                                                    ?>
+                                                    <option value="<?= $item['id']; ?>" >
+                                                        <?= $item['name_ship']; ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                            } else {
+                                                echo "Đơn vị vận chuyển trống";
+                                            }
+                                            ?>
+                                        </select>
+
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -118,6 +140,10 @@ if(mysqli_num_rows($cartItems) == 0){
 
                             }
                             ?>
+                            <h5 style="font-weight: bold;"> Vận chuyển:  <span class="float-end">
+                                    
+                                </span>
+                            </h5>
                             <h5 style="font-weight: bold;"> Tổng giá: <span class="float-end">
                                     <?= number_format($totalPrice, 0, ',', '.') ?> VNĐ
                                 </span>

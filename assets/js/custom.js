@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
     $(document).on('click', '.cong_btn', function (e) {
@@ -128,8 +130,8 @@ $(document).ready(function () {
                 "scope": "delete_wishlist"
             },
             success: function (response) {
-
-                $("#message").html(response);
+                
+                $("#message").html(response);            
               
                 $('#wishlist').load(location.href + " #wishlist"); // load lại cái id mycart
 
