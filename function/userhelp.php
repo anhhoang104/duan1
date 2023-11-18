@@ -6,7 +6,7 @@ include('../admin/config/dbcon.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-function send_message($name, $mail, $message){
+function send_message($name, $recipientEmail, $message){
 
     $body = "
     <h2>Chào bạn $name !</h2>
@@ -37,7 +37,7 @@ $mail->smtpConnect([
 
 $mail->isHTML(true);
 $mail->setFrom('19004002@st.vlute.edu.vn', 'NoiThatViet');
-$mail->addAddress($email); // enter email address whom you want to send
+$mail->addAddress($recipientEmail); // enter email address whom you want to send
 $mail->Subject = ("$subject");
 $mail->Body = $body;
 $mail->send();
@@ -66,17 +66,17 @@ if (isset($_POST['helper'])) {
 
 if (isset($_POST['repply_message'])) {
 
-    $id = mysqli_real_escape_string($con, $_POST["id"]);
-    $name = mysqli_real_escape_string($con, $_POST["name"]);
-    $email = mysqli_real_escape_string($con, $_POST["email"]);
-    $message = mysqli_real_escape_string($con, $_POST["repply"]);
+    $id = mysqli_real_escape_string($con, $_POST['id']);
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $message = mysqli_real_escape_string($con, $_POST['repply']);
 
     $sql = "UPDATE helpper SET status = 1 WHERE id = '$id' ";
     $query_sql_run = mysqli_query($con, $sql);
 
     if($query_sql_run){
         send_message($name,$email,$message);
-        $_SESSION["message"] = "Bạn đã gửi phản hồi thành công đến $email ";
+        $_SESSION["message"] = "Bạn đã gửi phản hồi thành công đến $email $name $message";
         header("Location:../admin/message.php");
         exit(0);
     }else{
@@ -84,9 +84,6 @@ if (isset($_POST['repply_message'])) {
         header("Location:../message.php");
         exit(0);
     }
-
-
-
 
 }
 

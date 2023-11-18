@@ -36,55 +36,58 @@ $data = mysqli_fetch_array($messageData);
                 </div>
                 <div class="card-body">
                     <div class="row">
-                  
-                            <div class="col-md-5">
-                                <h5>Thông tin người gửi</h5>
-                                <hr>
+
+                        <div class="col-md-5">
+                            <h5>Thông tin người gửi</h5>
+                            <hr>
                             <form action="../function/userhelp.php" method="POST">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
                                         <label class="fw-bold">Tên</label>
-                                        <input type="hidden" name="id" value="<?= $data['id'] ?>" >
-                                        <div class="border p-1" name="name">
+                                        <input type="hidden" name="name" value="<?= $data['name'] ?>">
+                                        <div class="border p-1">
                                             <?= $data['name'] ?>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <label class="fw-bold">Email</label>
-                                        <div class="border p-1" value="<?= $data['email'] ?>" name="email">
+                                        <input type="hidden" name="email" value="<?= $data['email'] ?>">
+                                        <div class="border p-1">
                                             <?= $data['email'] ?>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label class="fw-bold" value="<?= $data['phone'] ?>" name="">Số điện thoại</label>
+                                        <label class="fw-bold">Số điện thoại</label>
                                         <div class="border p-1">
                                             <?= $data['phone'] ?>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <label class="fw-bold">Nội dung</label>
-                                        <div class="border p-6" >
+                                        <div class="border p-6">
                                             <?= $data['message'] ?>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-7">
-                                <h5>Phản hồi</h5>
-                                <hr>
+                        </div>
+                        <div class="col-md-7">
+                            <h5>Phản hồi</h5>
+                            <hr>
 
-                                <label for="" class="fw-bold">Nội dung phản hồi </label>
-                                <textarea name="repply" id="" cols="" rows="10" class=" form-control mt-2"
-                                    placeholder="Nội dung.."></textarea>
-                                <button type="submit" name="repply_message" class=" btn btn-primary form-control fw-bold mt-2 "> Gửi </button>
-                        </form>
+                            <label for="" class="fw-bold">Nội dung phản hồi </label>
+                            <textarea name="repply" id="" cols="" rows="10" class=" form-control mt-2"
+                                placeholder="Nội dung.."></textarea>
+                            <button type="submit" name="repply_message"
+                                class=" btn btn-primary form-control fw-bold mt-2 "> Gửi </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
-
         </div>
-    </div>
 
-</div>
+    </div>
 
 </div>
