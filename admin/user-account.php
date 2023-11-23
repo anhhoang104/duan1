@@ -39,9 +39,21 @@ include('../middleware/adminMiddleware.php');
                                     <tr>
                                         <!-- <td>
                                             <?= $item['id_user'] ?>
-                                        </td> -->
+                                        </td>  -->
                                         <td>
                                             <?= $item['name'] ?>
+                                            <?php 
+                                                if($item['type']== 1){ ?>
+                                                
+                                                 <span class=" ms-3 badge bg-light text-dark fw-bold">Admin</span> 
+                                                    <?php
+                                                }
+                                                if($item['type']== 2){ ?>
+                                                
+                                                    <span class=" ms-3 badge bg-light text-dark">Nhân viên</span> 
+                                                       <?php
+                                                   }
+                                            ?>
                                         </td>
                                         <td>
                                             <?= $item['phone'] ?>
@@ -67,6 +79,10 @@ include('../middleware/adminMiddleware.php');
                                                     <?= $item['status'] == '0' ? '' : 'style="display:none;"' ?>>Khóa</button>
                                                 <button type="submit" class="btn btn-primary btn-sm " name="admin_enabled_account"
                                                     <?= $item['status'] == '1' ? '' : 'style="display:none;"' ?>>Mở</button>
+                                                <button type="submit" class="btn btn-light btn-sm" name="remove-nhanvien"
+                                                <?=  $item['type'] == '2' ? '' : 'style="display:none;"' ?>>Thu Hồi</button>
+                                                <button type="submit" class="btn btn-light btn-sm" name="add-nhanvien"
+                                                <?=  $item['type'] == '0' ? '' : 'style="display:none;"' ?>>Nhân viên</button>
 
                                                 <!-- <button type="submit" class="btn btn-danger"
                                                     name="admin_disabled_account">Khóa</button>
@@ -74,6 +90,7 @@ include('../middleware/adminMiddleware.php');
                                                     name="admin_disabled_account">Mở</button> -->
                                             </form>
                                         </td>
+                                       
                                     </tr>
                                     <?php
                                 }

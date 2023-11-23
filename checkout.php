@@ -6,7 +6,7 @@ include('includes/header.php');
 include('authenticate.php');
 
 $cartItems = getCartItems();
-if(mysqli_num_rows($cartItems) == 0){
+if (mysqli_num_rows($cartItems) == 0) {
     header('Location: index.php');
 }
 
@@ -65,24 +65,24 @@ if(mysqli_num_rows($cartItems) == 0){
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label class="fw-bold">Hình thức vận chuyển:</label>
-                                    <select class="form-select" name="shipping">
-                                            <option selected>Chọn đơn vị vận chuyển </option>
-                                            <?php
-                                            $shipping = getAll("shipping_unit");
-                                            if (mysqli_num_rows($shipping) > 0) {
-                                                foreach ($shipping as $item) {
-                                                    // $selected = ($data['catid'] == $item['id']) ? 'selected' : '';
-                                                    ?>
-                                                    <option value="<?= $item['id']; ?>" >
-                                                        <?= $item['name_ship']; ?>
-                                                    </option>
-                                                    <?php
-                                                }
-                                            } else {
-                                                echo "Đơn vị vận chuyển trống";
+                                    <select class="form-select" name="shipping" id="shippingSelect">
+                                        <option selected>Chọn đơn vị vận chuyển </option>
+                                        <?php
+                                        $shipping = getAll("shipping_unit");
+                                        if (mysqli_num_rows($shipping) > 0) {
+                                            foreach ($shipping as $item) {
+                                                // $selected = ($data['catid'] == $item['id']) ? 'selected' : '';
+                                                ?>
+                                                <option value="<?= $item['id']; ?>" data-amount="<?= $item['price']; ?>">
+                                                    <?= $item['name_ship']; ?>
+                                                </option>
+                                                <?php
                                             }
-                                            ?>
-                                        </select>
+                                        } else {
+                                            echo "Đơn vị vận chuyển trống";
+                                        }
+                                        ?>
+                                    </select>
 
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ if(mysqli_num_rows($cartItems) == 0){
                                         </div>
                                         <div class="col-md-3">
                                             <label for="">
-                                             <?= number_format($citem['price'], 0, ',', '.') ?>
+                                                <?= number_format($citem['price'], 0, ',', '.') ?>
                                             </label>
                                         </div>
                                     </div>
@@ -135,15 +135,17 @@ if(mysqli_num_rows($cartItems) == 0){
 
 
                                 <?php
-                                
+
                                 $totalPrice += $citem['price'] * $citem['prod_qty'];
 
                             }
                             ?>
-                            <h5 style="font-weight: bold;"> Vận chuyển:  <span class="float-end">
-                                    
-                                </span>
-                            </h5>
+                            <input type="text" id="totalPriceInput" value="<?= $totalPrice; ?>" readonly hidden>
+                            <div id="shippingInfo">
+                                <h5 style="font-weight: bold;"> Vận chuyển: <span class="float-end"
+                                         id="selectedShipping">Chưa chọn</span></h5>
+                                         <input type="hidden" value="" id="amountInput">
+                            </div>
                             <h5 style="font-weight: bold;"> Tổng giá: <span class="float-end">
                                     <?= number_format($totalPrice, 0, ',', '.') ?> VNĐ
                                 </span>
@@ -168,10 +170,34 @@ if(mysqli_num_rows($cartItems) == 0){
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var shippingSelect = document.getElementById('shippingSelect');
+        var selectedShippingSpan = document.getElementById('selectedShipping');
+        
+
+        shippingSelect.addEventListener('change', function () {
+            var selectedOption = shippingSelect.options[shippingSelect.selectedIndex];
+            var amount = selectedOption.getAttribute('data-amount');
+            
+
+            // Kiểm tra nếu đã chọn một đơn vị vận chuyển hợp lệ
+            if (amount) {
+                selectedShippingSpan.textContent = selectedOption.text + ': ' + numberWithCommas(parseInt(amount));
+               
+            }
+        });
+    });
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+</script>
 
 <?php include('includes/footer.php'); ?>
 
-<script src="https://www.paypal.com/sdk/js?client-id=AeQcASLASx-P3ezJMswPyTH4rp0Mlb-HIU1hCxxpz1Gp_t7Nw1MPvXUD8QbyodmHujg8obB8X72hnKbM&currency=USD"></script>
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AeQcASLASx-P3ezJMswPyTH4rp0Mlb-HIU1hCxxpz1Gp_t7Nw1MPvXUD8QbyodmHujg8obB8X72hnKbM&currency=USD"></script>
 
 <script>
 
@@ -184,6 +210,7 @@ if(mysqli_num_rows($cartItems) == 0){
             height: 40,
         },
         onClick() {
+            // console.log("on click");
             var name = $('#name').val();
             var email = $('#email').val();
             var phone = $('#phone').val();
@@ -218,20 +245,28 @@ if(mysqli_num_rows($cartItems) == 0){
         },
 
         createOrder: (data, actions) => {
+            // console.log("create order");
+            var totalPriceVND = <?= $totalPrice ?>;
+            var exchangeRate = 24240; // Tỷ giá chuyển đổi
+            var totalPriceUSD = (totalPriceVND / exchangeRate).toFixed(2);
+
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '<?= $totalPrice ?>'
+                        // value: '<?= $totalPrice ?>'
+                        value: totalPriceUSD
                     }
                 }]
             });
         },
-        onApproce: (data, actions) => {
+        onApprove: (data, actions) => {
             return actions.order.capture().then(function (orderData) {
+                // console.log(orderData)
+
                 // console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                 const transaction = orderData.purchase_units[0].payments.captures[0];
                 // alert('Transaction ${transaction.satus}:')
-                
+
                 var name = $('#name').val();
                 var email = $('#email').val();
                 var phone = $('#phone').val();
@@ -239,26 +274,27 @@ if(mysqli_num_rows($cartItems) == 0){
 
                 var data = {
                     'name': name,
-                    'email':email,
-                    'phone':phone,
-                    'address':address,
-                    'payment_mode':"Đã thanh toán bằng PayPal",
-                    'payment_id':transaction.id,
-                    
-                }
+                    'email': email,
+                    'phone': phone,
+                    'address': address,
+                    'payment_mode': "Thanh toán bằng PayPal",
+                    'payment_id': transaction.id,
+                    'placeOrderBtn': true
 
+                };
+                console.log(data)
 
                 $.ajax({
                     type: "POST",
                     url: "function/placeorder.php",
                     data: data,
                     success: function (response) {
-                        if(response == 201){
-                            alertify.success("Thanh toán thành công");
+                        if (response == 201) {
+                            // $_SESSION['message'] = "Thành công! ";
+
                             // actions.redirect('my-orders.php');
                             window.location.href = 'my-orders.php';
-                        }else{
-                            console.log(response);
+                            alertify.success("Đặt hàng thành công thành công");
                         }
 
                     }

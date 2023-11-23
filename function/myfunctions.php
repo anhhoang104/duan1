@@ -1,7 +1,6 @@
 <?php
 // session_start();
 include('config/dbcon.php');
-
 function getAll($table)
 {
     global $con;
@@ -41,7 +40,7 @@ function getOrdersHistory1()
 function redirect($url, $message)
 {
     $_SESSION['message'] = $message;
-    header('Location:' . $url);
+    header('Location:'.$url);
     exit(0);
 }
 function checkTrackingNoValid($tracking_no)
@@ -56,5 +55,4 @@ function checkMessage($id){
     $query = "SELECT * FROM helpper WHERE id = '$id'";
     return $query_run = mysqli_query($con, $query);
 }
-
 ?>

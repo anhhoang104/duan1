@@ -158,6 +158,9 @@ if (isset($_POST['login_btn'])) {
             // redirect("../admin/index.php","Chào bạn đến với Admin");
             $_SESSION['message'] = "Chào bạn đến với Admin";
             header('Location: ../admin/index.php');
+        } else if ($type == 2) {
+            $_SESSION['message'] = "Chào nhân viên đến với Admin";
+            header('Location:../admin/index.php');
         } else {
             // redirect("../index.php","Đăng nhập thành công");
             $_SESSION['message'] = "Đăng nhập thành công";
@@ -350,7 +353,7 @@ if (isset($_POST["update_password"])) {
 
 }
 
-if(isset($_POST['admin_disabled_account'])){
+if (isset($_POST['admin_disabled_account'])) {
 
     $id_user = mysqli_real_escape_string($con, $_POST["id_user"]);
     $name = mysqli_real_escape_string($con, $_POST["name"]);
@@ -360,7 +363,7 @@ if(isset($_POST['admin_disabled_account'])){
 
     if ($disabled_account_query_run) {
         redirect('../admin/user-account.php', "Bạn đã khóa tài khoản với tên $name");
-    }else{
+    } else {
         redirect('../admin/user-account.php', "Không thể khóa tài khoản");
     }
 
@@ -368,7 +371,7 @@ if(isset($_POST['admin_disabled_account'])){
 
 }
 
-if(isset($_POST["admin_enabled_account"])){
+if (isset($_POST["admin_enabled_account"])) {
     $id_user = mysqli_real_escape_string($con, $_POST["id_user"]);
     $name = mysqli_real_escape_string($con, $_POST["name"]);
 
@@ -377,10 +380,36 @@ if(isset($_POST["admin_enabled_account"])){
 
     if ($enabled_account_query_run) {
         redirect('../admin/user-account.php', "Bạn đã mở khóa tài khoản với tên $name");
-    }else{
+    } else {
         redirect('../admin/user-account.php', "Không thể mở khóa tài khoản");
     }
 }
 
+if (isset($_POST["add-nhanvien"])) {
+    $id_user = mysqli_real_escape_string($con, $_POST["id_user"]);
+    $name = mysqli_real_escape_string($con, $_POST["name"]);
+
+    $add_account_query = "UPDATE users SET type = '2' WHERE id_user = '$id_user'";
+    $add_account_query_run = mysqli_query($con, $add_account_query);
+
+    if ($add_account_query_run) {
+        redirect('../admin/user-account.php', "Bạn đã $name là nhân viên của mình");
+    } else {
+        redirect('../admin/user-account.php', "Không thể thêm nhân viên");
+    }
+}
+if (isset($_POST["remove-nhanvien"])) {
+    $id_user = mysqli_real_escape_string($con, $_POST["id_user"]);
+    $name = mysqli_real_escape_string($con, $_POST["name"]);
+
+    $add_account_query = "UPDATE users SET type = '0' WHERE id_user = '$id_user'";
+    $add_account_query_run = mysqli_query($con, $add_account_query);
+
+    if ($add_account_query_run) {
+        redirect('../admin/user-account.php', "Bạn đã xa thải nhân viên: $name ");
+    } else {
+        redirect('../admin/user-account.php', "Không xa thải nhân viên");
+    }
+}
 
 ?>

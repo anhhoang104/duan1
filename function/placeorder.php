@@ -3,9 +3,10 @@ session_start();
 include('../admin/config/dbcon.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
-function  send_order_mail($name,$email,$phone){
+function  send_order_mail($name,$email,$phone,$payment_mode){
     $body = "
     <h2>Cảm ơn $name đã đặt hàng tại NoiThatViet</h2>
+    <p> Với phương thức. <span style='color:blue' >$payment_mode</span> </p>
     <h3>Chúng tôi sẽ liên hệ tới số điện thoại: $phone để xác nhận đơn hàng! </h3> 
     <br><hr>
     <span style='color: red'> Chân thành cảm ơn! </span>
@@ -115,13 +116,14 @@ if (isset($_SESSION['auth'])) {
             if($payment_mode == "Thanh toán khi nhận hàng") {
                 
                 
-                send_order_mail($name,$email,$phone);
+                send_order_mail($name,$email,$phone,$payment_mode);
                 
                 $_SESSION['message'] = "Thành công! ";
                 header('Location: ../my-orders.php');
                 die();
           
             }else{
+                send_order_mail($name,$email,$phone,$payment_mode);
                 echo 201;
             }
             
