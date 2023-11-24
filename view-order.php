@@ -148,6 +148,12 @@ $data = mysqli_fetch_array($orderData);
                                         </span>
                                     </div>
                                     <div class="border p-1 mb-3 fw-bold">
+                                        <label for="">Hình thức vận chuyển: </label>
+                                        <span class="badge bg-danger">
+                                            <?= $data['shipping'] ?>
+                                        </span>
+                                    </div>
+                                    <div class="border p-1 mb-3 fw-bold">
                                         <label for="">Trạng thái đơn hàng: </label>
                                         <?php if ($data['status'] == 0) { ?>
                                             <span class="badge bg-warning text-dark">Đang xử lý</span>

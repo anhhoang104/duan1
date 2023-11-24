@@ -3,7 +3,7 @@
 include('../function/myfunctions.php');
 
 if (isset($_SESSION['auth'])) {
-    if ($_SESSION['type'] != 1) {
+    if ($_SESSION['type'] = 0 ) {
 
         redirect("../index.php","Bạn không có quyền truy cập trang Admin");
       

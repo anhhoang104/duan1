@@ -1,6 +1,8 @@
 <?php
+
 // session_start();
 include('config/dbcon.php');
+ob_start();
 function getAll($table)
 {
     global $con;
@@ -40,7 +42,8 @@ function getOrdersHistory1()
 function redirect($url, $message)
 {
     $_SESSION['message'] = $message;
-    header('Location:'.$url);
+    header('Location:' .$url);
+    ob_end_flush();
     exit(0);
 }
 function checkTrackingNoValid($tracking_no)

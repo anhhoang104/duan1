@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include('admin/config/dbcon.php');
 
@@ -13,6 +14,7 @@ function redirect($url, $message)
 {
     $_SESSION['message'] = $message;
     header('Location:' . $url);
+    ob_end_flush();
     exit();
 }
 function getID($table, $id)
@@ -41,7 +43,6 @@ function getCartItems()
 {
     global $con;
     $user_id = $_SESSION['auth_user']['user_id'];
-
     $query = "SELECT c.id AS cart_id, p.id AS product_id, p.productName, p.image,p.price, c.prod_qty FROM carts c JOIN product p ON c.prod_id = p.id WHERE c.user_id = '$user_id'";
 
 

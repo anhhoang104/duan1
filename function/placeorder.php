@@ -53,6 +53,7 @@ if (isset($_SESSION['auth'])) {
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $phone = mysqli_real_escape_string($con, $_POST['phone']);
         $address = mysqli_real_escape_string($con, $_POST['address']);
+        $shipping = mysqli_real_escape_string($con,$_POST['shipping']);
         $payment_mode = mysqli_real_escape_string($con, $_POST['payment_mode']);
         $payment_id = mysqli_real_escape_string($con, $_POST['payment_id']);
         if ($name == "" || $email == "" || $phone == "" || $address == "") {
@@ -80,8 +81,8 @@ if (isset($_SESSION['auth'])) {
         $tracking_no = "ntv" . rand(1111, 9999) . substr($phone, 2);
         $user_id = $_SESSION['auth_user']['user_id'];
 
-        $insert_query = "INSERT INTO orders (tracking_no, user_id, name, email, phone , address, total_price, payment_mode, payment_id) 
-        VALUES ('$tracking_no', '$user_id', '$name', '$email', '$phone', '$address','$totalPrice','$payment_mode' ,'$payment_id')";
+        $insert_query = "INSERT INTO orders (tracking_no, user_id, name, email, phone , address, total_price, payment_mode, payment_id,shipping) 
+        VALUES ('$tracking_no', '$user_id', '$name', '$email', '$phone', '$address','$totalPrice','$payment_mode' ,'$payment_id','$shipping')";
 
         $insert_query_run = mysqli_query($con, $insert_query);
 

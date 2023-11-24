@@ -73,7 +73,7 @@ if (mysqli_num_rows($cartItems) == 0) {
                                             foreach ($shipping as $item) {
                                                 // $selected = ($data['catid'] == $item['id']) ? 'selected' : '';
                                                 ?>
-                                                <option value="<?= $item['id']; ?>" data-amount="<?= $item['price']; ?>">
+                                                <option value="<?= $item['name_ship']; ?>">
                                                     <?= $item['name_ship']; ?>
                                                 </option>
                                                 <?php
@@ -83,6 +83,7 @@ if (mysqli_num_rows($cartItems) == 0) {
                                         }
                                         ?>
                                     </select>
+                                    <small class="text-danger shipping"></small>
 
                                 </div>
                             </div>
@@ -140,11 +141,11 @@ if (mysqli_num_rows($cartItems) == 0) {
 
                             }
                             ?>
-                            <input type="text" id="totalPriceInput" value="<?= $totalPrice; ?>" readonly hidden>
+                            <!-- <input type="text" id="totalPriceInput" value="<?= $totalPrice; ?>" readonly hidden> -->
                             <div id="shippingInfo">
                                 <h5 style="font-weight: bold;"> Vận chuyển: <span class="float-end"
-                                         id="selectedShipping">Chưa chọn</span></h5>
-                                         <input type="hidden" value="" id="amountInput">
+                                        id="selectedShipping">Chưa chọn</span></h5>
+
                             </div>
                             <h5 style="font-weight: bold;"> Tổng giá: <span class="float-end">
                                     <?= number_format($totalPrice, 0, ',', '.') ?> VNĐ
@@ -174,17 +175,13 @@ if (mysqli_num_rows($cartItems) == 0) {
     document.addEventListener('DOMContentLoaded', function () {
         var shippingSelect = document.getElementById('shippingSelect');
         var selectedShippingSpan = document.getElementById('selectedShipping');
-        
 
         shippingSelect.addEventListener('change', function () {
             var selectedOption = shippingSelect.options[shippingSelect.selectedIndex];
-            var amount = selectedOption.getAttribute('data-amount');
-            
 
             // Kiểm tra nếu đã chọn một đơn vị vận chuyển hợp lệ
-            if (amount) {
-                selectedShippingSpan.textContent = selectedOption.text + ': ' + numberWithCommas(parseInt(amount));
-               
+            if (selectedOption.value !== "") {
+                selectedShippingSpan.textContent = selectedOption.text;
             }
         });
     });
@@ -215,6 +212,7 @@ if (mysqli_num_rows($cartItems) == 0) {
             var email = $('#email').val();
             var phone = $('#phone').val();
             var address = $('#address').val();
+            
 
             if (name.length == 0) {
                 $('.name').text("Tên không được bỏ trống!");
@@ -271,12 +269,14 @@ if (mysqli_num_rows($cartItems) == 0) {
                 var email = $('#email').val();
                 var phone = $('#phone').val();
                 var address = $('#address').val();
+                var shipping = $('#shippingSelect').val();
 
                 var data = {
                     'name': name,
                     'email': email,
                     'phone': phone,
                     'address': address,
+                    'shipping':shipping,
                     'payment_mode': "Thanh toán bằng PayPal",
                     'payment_id': transaction.id,
                     'placeOrderBtn': true
