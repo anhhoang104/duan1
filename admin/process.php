@@ -68,7 +68,40 @@ if (isset($_POST['edit_ship_btn'])) {
 
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Lấy giá trị tuần từ biểu mẫu
+    $selectedWeek = $_POST["week"];
 
+    generateChart($selectedWeek);
+    // header("Location: index.php");
+    // exit();
+    
+}
+function generateChart($week) {
+    // Sử dụng biến toàn cục $con
+    global $con;
+
+    // Thực hiện câu truy vấn SQL để lấy dữ liệu cho tuần được chọn
+    $query = "SELECT DAYNAME(created_at) as day_of_week, SUM(total_price) as daily_sales
+              FROM orders
+              WHERE WEEK(created_at) = $week AND YEAR(created_at) = YEAR(NOW())
+              GROUP BY day_of_week
+              ORDER BY FIELD(day_of_week, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')";
+
+    $result = $con->query($query);
+
+    $data = array();
+
+    while ($row = $result->fetch_assoc()) {
+        $data[] = $row;
+    }
+
+        // Thiết lập loại nội dung là JSON
+        header('Content-Type: application/json');
+
+        // Truyền dữ liệu về JavaScript
+        echo json_encode($data);
+}
 
 
 ?>

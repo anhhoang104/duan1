@@ -25,12 +25,14 @@ session_start();
     <!-- CSS Files -->
     <link id="pagestyle" href="assets/css/material-dashboard.min.css" rel="stylesheet" />
 
+    
+
     <!-- Alertify js -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css" />
 
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         .form-control {

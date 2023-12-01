@@ -58,7 +58,7 @@
         }
 
         div.wishlist {
-            opacity: 0; 
+            opacity: 0;
             transform: translateY(-20px);
             /* Di chuyển xuống khỏi vị trí hiển thị */
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -66,16 +66,49 @@
 
         /* Hiển thị div.wishlist khi hover vào div.card-body */
         div.card-body:hover div.wishlist {
-            
+
             opacity: 1;
             transform: translateY(0);
         }
+
         button.delete-icon {
             border: none;
             outline: none;
             background: none;
         }
-        
+
+        /* ảnh */
+        .image-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-overlay img {
+            width: 100%;
+            height: 550px;
+        }
+
+        .half-width-image {
+            width: 50%;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(255, 230, 230);
+        }
+
+        .overlay-text h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .overlay-text p {
+            font-size: 1.5em;
+        }
     </style>
 
 </head>
