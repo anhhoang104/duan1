@@ -6,12 +6,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- search start -->
+      <form action="search.php" method="GET" class="d-flex ms-auto">
+        <input class="form-control mr-sm-2" type="text" name="query" placeholder="Tìm kiếm sản phẩm..."
+          aria-label="Search" style="width: 400px;">
+        <button class="btn btn-outline-secondary" type="submit">Tìm kiếm</button>
+      </form>
+      <!-- search end -->
       <ul class="navbar-nav ms-auto">
-        <!-- <form action="search.php" method="" class="d-flex">
-          <input class="form-control mr-sm-2" type="text" name="query" placeholder="Tìm kiếm sản phẩm..."
-            aria-label="Search" style="width: 400px;">
-          <button class="btn btn-outline-secondary" type="submit">Tìm kiếm</button>
-        </form> -->
 
         <li class="nav-item ">
           <a class="nav-link active" aria-current="page" href="index.php">Trang chủ</a>

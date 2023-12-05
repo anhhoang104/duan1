@@ -38,14 +38,20 @@ include('includes/header.php');
 
 
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Email</label>
+                                <label for="" class="form-label">Email</label>
                                 <input type="email" name="email" class="form-control" placeholder="Nhập Email..."
-                                    id="exampleInputPassword1">
+                                    id="" required>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
                                 <input type="password" name="password" class="form-control"
-                                    placeholder="Nhập mật khẩu..." id="exampleInputPassword1">
+                                    placeholder="Nhập mật khẩu..." id="exampleInputPassword1" required
+                                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$"
+                                        title="Mật khẩu phải có ít nhất 8 kí tự bao gồm thường, in hoa và số.">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="showPasswordCheckbox">
+                                <label class="form-check-label" for="showPasswordCheckbox">Hiển thị mật khẩu</label>
                             </div>
                             <div>
                                 <span>Bạn bị quên mật khẩu? <a href="password-reset.php">Quên mật khẩu</a></span>
@@ -67,3 +73,18 @@ include('includes/header.php');
     </div>
 </div>
 <?php include('includes/footer.php'); ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var passwordInput = document.getElementById('exampleInputPassword1');
+        var showPasswordCheckbox = document.getElementById('showPasswordCheckbox');
+        var showPasswordIcon = document.getElementById('showPasswordIcon');
+
+        showPasswordCheckbox.addEventListener('change', function () {
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    });
+</script>

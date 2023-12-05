@@ -2,11 +2,11 @@
 
 session_start();
 
-if (isset($_SESSION['auth'])) {
-    $_SESSION['message'] = "Bạn đã đăng nhập rồi!";
-    header('Location: index.php');
-    exit();
-}
+// if (isset($_SESSION['auth'])) {
+//     $_SESSION['message'] = "Bạn đã đăng nhập rồi!";
+//     header('Location: index.php');
+//     exit();
+// }
 
 include('includes/header.php');
 ?>

@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 session_start();
-include('includes/header.php'); 
+include('includes/header.php');
 ?>
 
 
@@ -13,11 +13,12 @@ include('includes/header.php');
                 if (isset($_SESSION['message'])) {
                     ?>
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Hey</strong> <?= $_SESSION['message']; ?>
+                        <strong>Hey</strong>
+                        <?= $_SESSION['message']; ?>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                <?php
-                unset($_SESSION['message']);
+                    <?php
+                    unset($_SESSION['message']);
                 }
                 ?>
                 <div class="card">
@@ -30,28 +31,58 @@ include('includes/header.php');
 
                             <div class="mb-3">
                                 <label class="form-label">Tên</label>
-                                <input type="text" name="name" class="form-control" placeholder="Nhập tên tài khoản...">
+                                <input type="text" name="name" class="form-control" placeholder="Nhập tên tài khoản..."
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Số điện thoại</label>
-                                <input type="number" name="phone" class="form-control"
-                                    placeholder="Nhập số điện thoại...">
+                                <input type="tel" name="phone" class="form-control" placeholder="Nhập số điện thoại..."
+                                    required pattern="^0[0-9]{9}$"
+                                    title="Số điện thoại phải bắt đầu bằng số 0 và có tổng cộng 10 số.">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Email</label>
+                                <label for="" class="form-label">Email</label>
                                 <input type="email" name="email" class="form-control" placeholder="Nhập Email..."
-                                    id="exampleInputPassword1">
+                                    id="" required>
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
                                 <input type="password" name="password" class="form-control"
-                                    placeholder="Nhập mật khẩu..." id="exampleInputPassword1">
+                                    placeholder="Nhập mật khẩu..." id="exampleInputPassword1" required
+                                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$"
+                                    title="Mật khẩu phải có ít nhất 8 kí tự bao gồm thường, in hoa và số.">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu</label>
                                 <input type="password" name="cpassword" class="form-control"
-                                    placeholder="Nhập lại mật khẩu..." id="exampleInputPassword1">
+                                    placeholder="Nhập lại mật khẩu..." id="exampleInputPassword1" required>
+                            </div> -->
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
+                                <div class="input-group">
+                                    <input type="password" name="password" class="form-control"
+                                        placeholder="Nhập mật khẩu..." id="exampleInputPassword1" required
+                                        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$"
+                                        title="Mật khẩu phải có ít nhất 8 kí tự bao gồm thường, in hoa và số.">
+                                    <button type="button" id="showPasswordToggle" class="btn btn-outline-secondary">
+                                        <i id="showPasswordIcon" class="fa fa-eye"></i>
+                                    </button>
+                                </div>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="exampleInputPassword2" class="form-label">Nhập lại mật khẩu</label>
+                                <div class="input-group">
+                                    <input type="password" name="cpassword" class="form-control"
+                                        placeholder="Nhập lại mật khẩu..." id="exampleInputPassword2" required>
+                                    <button type="button" id="showCPasswordToggle" class="btn btn-outline-secondary">
+                                        <i id="showCPasswordIcon" class="fa fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+
 
                             <button type="submit" name="register_btn" class="btn btn-primary">Đăng ký</button>
                         </form>
@@ -63,3 +94,35 @@ include('includes/header.php');
     </div>
 </div>
 <?php include('includes/footer.php'); ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var passwordInput = document.getElementById('exampleInputPassword1');
+        var showPasswordToggle = document.getElementById('showPasswordToggle');
+        var showPasswordIcon = document.getElementById('showPasswordIcon');
+
+        var cpasswordInput = document.getElementById('exampleInputPassword2');
+        var showCPasswordToggle = document.getElementById('showCPasswordToggle');
+        var showCPasswordIcon = document.getElementById('showCPasswordIcon');
+
+        showPasswordToggle.addEventListener('click', function () {
+            togglePasswordVisibility(passwordInput, showPasswordIcon);
+        });
+
+        showCPasswordToggle.addEventListener('click', function () {
+            togglePasswordVisibility(cpasswordInput, showCPasswordIcon);
+        });
+
+        function togglePasswordVisibility(inputField, iconElement) {
+            if (inputField.type === "text") {
+                inputField.type = "password";
+                iconElement.classList.remove('fa-eye-slash');
+                iconElement.classList.add('fa-eye');
+            } else {
+                inputField.type = "text";
+                iconElement.classList.remove('fa-eye');
+                iconElement.classList.add('fa-eye-slash');
+            }
+        }
+    });
+</script>
