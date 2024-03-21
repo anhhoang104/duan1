@@ -18,6 +18,8 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
   <hr class="horizontal light mt-0 mb-2">
   <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
     <ul class="navbar-nav">
+
+    
       <li class="nav-item">
         <a class="nav-link text-white   <?= $page == "index.php" ? 'active bg-gradient-primary' : ''; ?>"
           href="index.php">
@@ -27,6 +29,9 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
           <span class="nav-link-text ms-1">Dashboard</span>
         </a>
       </li>
+
+
+
       <li class="nav-item">
         <a class="nav-link text-white  <?= $page == "category.php" ? 'active bg-gradient-primary' : ''; ?>"
           href="category.php">
@@ -44,7 +49,10 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
             <span class="nav-link-text ms-1">Thêm danh mục</span>
           </a>
         </li> -->
-      <li class="nav-item">
+
+
+
+      <!-- <li class="nav-item">
         <a class="nav-link text-white  <?= $page == "brand.php" ? 'active bg-gradient-primary' : ''; ?>"
           href="brand.php">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -52,7 +60,11 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
           </div>
           <span class="nav-link-text ms-1">Phân loại </span>
         </a>
-      </li>
+      </li> -->
+
+
+
+
       <!-- <li class="nav-item">
           <a class="nav-link text-white  <?= $page == "add-brand.php" ? 'active bg-gradient-primary' : ''; ?>" href="add-brand.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -78,7 +90,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
             <span class="nav-link-text ms-1">Thêm sản phẩm</span>
           </a>
         </li> -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link text-white  <?= $page == "orders.php" ? 'active bg-gradient-primary' : ''; ?>"
           href="orders.php">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -87,8 +99,8 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
           <span class="nav-link-text ms-1">Đơn hàng</span>
         </a>
       </li>
-     
-        <li class="nav-item"  <?php if (isset($_SESSION['type']) && $_SESSION['type'] == 2 && $page != "user-account.php") echo 'style="display: none;"'; ?> >
+      -->
+        <!-- <li class="nav-item"  <?php if (isset($_SESSION['type']) && $_SESSION['type'] == 2 && $page != "user-account.php") echo 'style="display: none;"'; ?> >
           <a class="nav-link text-white  <?= $page == "user-account.php" ? 'active bg-gradient-primary' : ''; ?>"
             href="user-account.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -97,14 +109,19 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
             <span class="nav-link-text ms-1">Tài khoản người dùng</span>
           </a>
         </li>
-     
-      <li class="nav-item">
+      -->
+      <!-- <li class="nav-item">
         <a class="nav-link text-white  <?= $page == "shipping-unit.php" ? 'active bg-gradient-primary' : ''; ?>"
           href="shipping-unit.php">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">local_shipping</i>
           </div>
+
+
           <span class="nav-link-text ms-1">Đơn vị vận chuyển</span>
+
+
+          
         </a>
       </li>
       <li class="nav-item">
@@ -115,7 +132,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
           </div>
           <span class="nav-link-text ms-1">Tin nhắn trợ giúp</span>
         </a>
-      </li>
+      </li> -->
 
     </ul>
   </div>
