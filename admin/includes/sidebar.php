@@ -12,7 +12,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
       aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="#" target="">
       <!-- <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo"> -->
-      <span class="ms-1 font-weight-bold text-white">NOITHATVIET Dashboard </span>
+      <span class="ms-1 font-weight-bold text-white">THOITRANGVIET Dashboard </span>
     </a>
   </div>
   <hr class="horizontal light mt-0 mb-2">

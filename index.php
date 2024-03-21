@@ -48,7 +48,7 @@ include('includes/slider.php');
             <div class="col-md-12">
                 <h4 class="text-danger fw-bold">Thông tin </h4>
                 <div class="underline mb-2"></div>
-                <p>Thành lập ngày 07/08/1998, Nội thất Việt là thương hiệu uy tín hàng đầu Việt Nam trong lĩnh vực
+                <p>Thành lập ngày 07/08/1998, THỜI TRANG VIỆT là thương hiệu uy tín hàng đầu Việt Nam trong lĩnh vực
                     kinh doanh các sản phẩm nội thất chất lượng cao, nhập khẩu chính hãng từ Châu Âu, Châu Á và các sản
                     phẩm sản xuất tại Nhà máy quy mô 15.000m2 của Hoàn Mỹ.</p>
 

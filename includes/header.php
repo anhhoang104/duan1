@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/themes/default.min.css" />
 
 
-    <title>Nội thất Việt</title>
+    <title>THỜI TRANG VIỆT</title>
 
     <style>
         a {

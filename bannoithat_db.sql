@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 05, 2023 lúc 01:11 PM
+-- Thời gian đã tạo: Th2 25, 2024 lúc 05:12 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -38,10 +38,12 @@ CREATE TABLE `brand` (
 --
 
 INSERT INTO `brand` (`id`, `name`, `created_at`) VALUES
-(5, 'Nội thất phòng bếp', '2023-10-06 16:12:17'),
-(6, 'Nội thất phòng khách', '2023-10-06 16:12:25'),
-(7, 'Nội thất nhà tắm', '2023-10-06 16:12:33'),
-(10, 'Nội thất bếp', '2023-10-23 09:07:22');
+(5, 'Nike', '2023-12-25 05:38:47'),
+(6, 'Adidas', '2023-12-25 05:38:55'),
+(7, 'Puma', '2023-12-25 05:39:02'),
+(10, 'Vans', '2023-12-25 05:39:10'),
+(11, 'Converse', '2023-12-25 05:39:21'),
+(12, 'Giày mới', '2024-02-25 04:03:24');
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,8 @@ CREATE TABLE `carts` (
 INSERT INTO `carts` (`id`, `user_id`, `prod_id`, `prod_qty`, `created_at`) VALUES
 (66, 7, 29, 1, '2023-10-25 14:12:02'),
 (68, 7, 28, 1, '2023-10-27 18:07:06'),
-(102, 12, 36, 1, '2023-12-05 11:35:44');
+(102, 12, 36, 1, '2023-12-05 11:35:44'),
+(103, 18, 38, 1, '2024-02-25 03:58:39');
 
 -- --------------------------------------------------------
 
@@ -84,11 +87,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `created_at`, `image`) VALUES
-(27, 'Bàn', '2023-11-09 14:40:38', '1699540838.png'),
-(28, 'Giường', '2023-11-09 14:40:52', '1699540852.png'),
-(29, 'Ghế ăn', '2023-11-09 14:41:08', '1699540868.png'),
-(30, 'Tủ', '2023-11-09 14:41:25', '1699540885.webp'),
-(31, 'Ghế Sofa', '2023-11-09 14:41:36', '1699540896.png');
+(27, 'Giày thể thao', '2023-11-09 14:40:38', '1703482547.jpeg'),
+(28, 'Giày công sở', '2023-11-09 14:40:52', '1703482572.jpg'),
+(29, 'Giày boot', '2023-11-09 14:41:08', '1703482608.jpg'),
+(30, 'Giày trẻ em', '2023-11-09 14:41:25', '1703482640.jpg'),
+(31, 'Giày thời trang:', '2023-11-09 14:41:36', '1703482667.jpg');
 
 -- --------------------------------------------------------
 
@@ -105,16 +108,6 @@ CREATE TABLE `helpper` (
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `helpper`
---
-
-INSERT INTO `helpper` (`id`, `name`, `email`, `phone`, `message`, `status`, `created_at`) VALUES
-(1, 'An', 'nguyenvanducan2000@gmail.com', '0372432119', 'hihi', 1, '2023-11-13 16:48:51'),
-(2, 'An', 'nguyenvanducan2000@gmail.com', '0372432119', 'hihi', 1, '2023-11-13 16:49:05'),
-(3, 'An', 'nguyenvanducan2000@gmail.com', '0372432119', '123', 1, '2023-11-13 16:50:44'),
-(4, 'An', 'nguyenvanducan2000@gmail.com', '0123456789', 'Chào admin mình cần muốn hỗ trợ!', 1, '2023-11-14 05:25:55');
 
 -- --------------------------------------------------------
 
@@ -144,7 +137,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `tracking_no`, `user_id`, `name`, `email`, `phone`, `address`, `total_price`, `payment_mode`, `payment_id`, `shipping`, `status`, `comments`, `created_at`) VALUES
-(29, 'ntv95433', 7, 'An', 'nguyenvanducan2000@gmail.com', '123', '123', 12333, 'Thanh toán khi nhận hàng', '', '', 0, NULL, '2023-10-24 08:14:05'),
+(29, 'ntv95433', 7, 'huyehn', 'ngochuyen@gmail.com', '123', '123', 12333, 'Thanh toán khi nhận hàng', '', '', 1, NULL, '2023-10-24 08:14:05'),
 (30, 'ntv71542', 6, 'An', 'nguyenvanducn2000@gmail.com', '312', '123wqwe', 246660, 'Thanh toán khi nhận hàng', '', '', 0, NULL, '2023-10-28 06:10:09'),
 (31, 'ntv607272432119', 6, 'An', 'nguyenvanducan2000@gmail.com', '0372432119', 'jnnj', 330000, 'Thanh toán khi nhận hàng', '', '', 0, NULL, '2023-11-13 04:00:05'),
 (32, 'ntv271972432119', 6, 'An', 'nguyenvanducan2000@gmail.com', '0372432119', 'dsdf', 100000, 'Thanh toán khi nhận hàng', '', '', 0, NULL, '2023-11-14 13:53:29'),
@@ -170,7 +163,8 @@ INSERT INTO `orders` (`id`, `tracking_no`, `user_id`, `name`, `email`, `phone`, 
 (52, 'ntv933772432119', 8, 'An fe', 'nguyenvanducan2000@gmail.com', '0372432119', 'ngfh', 100000, 'Thanh toán bằng PayPal', '11B55230GX439620Y', 'Loship', 1, NULL, '2023-11-24 04:43:57'),
 (53, 'ntv486472432119', 8, 'An', 'nguyenvanducan2000@gmail.com', '0372432119', 'tổ 9 ấp 4 tân thanh cái bè tiền giang', 110000, 'Thanh toán khi nhận hàng', '', 'Loship', 2, NULL, '2023-11-30 05:12:24'),
 (54, 'ntv147072432119', 8, 'An fe', 'nguyenvanducan2000@gmail.com', '0372432119', 'jhegfjba', 600000, 'Thanh toán khi nhận hàng', '', 'Loship', 0, NULL, '2023-12-01 08:22:19'),
-(55, 'ntv804572432119', 6, 'An', 'nguyenvanducan2000@gmail.com', '0372432119', 'rtyrty', 2400000, 'Thanh toán khi nhận hàng', '', 'Bee', 0, NULL, '2023-12-04 09:42:30');
+(55, 'ntv804572432119', 6, 'An', 'nguyenvanducan2000@gmail.com', '0372432119', 'rtyrty', 2400000, 'Thanh toán khi nhận hàng', '', 'Bee', 0, NULL, '2023-12-04 09:42:30'),
+(56, 'ntv57022654855', 19, 'ngochuyen', 'huyenit@gmail.com', '022654855', 'Tiền giang', 3000000, 'Thanh toán khi nhận hàng', '', 'Giao hàng tiết kiệm', 0, NULL, '2024-02-25 04:01:57');
 
 -- --------------------------------------------------------
 
@@ -228,7 +222,8 @@ INSERT INTO `order_items` (`id`, `order_id`, `prod_id`, `qty`, `price`, `create_
 (63, 52, 33, 1, 100000, '2023-11-24 04:43:57'),
 (64, 53, 34, 1, 110000, '2023-11-30 05:12:24'),
 (65, 54, 33, 6, 100000, '2023-12-01 08:22:19'),
-(66, 55, 35, 20, 120000, '2023-12-04 09:42:30');
+(66, 55, 35, 20, 120000, '2023-12-04 09:42:30'),
+(67, 56, 42, 3, 1000000, '2024-02-25 04:01:57');
 
 -- --------------------------------------------------------
 
@@ -253,13 +248,13 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `productName`, `catid`, `brandid`, `product_desc`, `image`, `quantity`, `trending`, `price`) VALUES
-(36, 'Bàn Ăn Gỗ Cao Su', 27, 5, ' Gỗ công nghiệp MDF chuẩn CARB-P2 (*), Veneer gỗ cao su tự nhiên', '1701776057.jpg', 100, 1, '1000000'),
-(37, 'Bàn Ăn Gỗ Tự Nhiên', 27, 6, 'Gỗ cao su tự nhiên\r\n\r\nChống thấm, cong vênh, trầy xước, mối mọt', '1701776297.jpg', 100, 1, '100000'),
-(38, 'Bàn Ăn Gỗ VLINE 601', 27, 6, 'Chất liệu: Gỗ cao su tự nhiên\r\n\r\nChống thấm, cong vênh, trầy xước, mối mọt', '1701776347.webp', 100, 0, '120000'),
-(39, 'Bàn Ăn Gỗ NYBORG', 27, 5, 'Mặt bàn: Gỗ công nghiệp MDF chuẩn CARB-P2 (*), Veneer gỗ tràm tự nhiên - Chân bàn: Gỗ tràm tự nhiên', '1701776416.webp', 100, 0, '80000'),
-(40, 'Bàn học', 27, 6, 'Mặt bàn: Gỗ công nghiệp PB chuẩn CARB-P2 (*), Veneer gỗ tràm tự nhiên', '1701776468.webp', 100, 0, '90000'),
-(41, 'Giường Ngủ FIJI 401', 28, 7, ' Dài 210cm x Rộng 171/191cm - Cao đến đầu giường 90 cm - Gầm giường cao 16cm', '1701776604.jpg', 100, 1, '10000'),
-(42, 'Giường ngủ 301', 28, 6, '- Dài 210cm x Rộng 171/191cm - Cao đến đầu giường 90 cm - Gầm giường cao 16cm', '1701776664.webp', 100, 1, '1000000');
+(36, 'Giày Vải Nữ Giày Thể Thao Thời Trang Giày Dạo Phố Phong Cách Hàn Quốc Nữ 11872', 27, 5, 'Chất liệu bên trên : Vải\r\n\r\n\r\n\r\nChất liệu bên trong : Vải thoáng khí\r\n\r\n\r\n\r\nKiểu đế : Đế bằng\r\n\r\n\r\nVật liệu đế : đế cao su chống trượt , chống mòn \r\n\r\n\r\n\r\nXuất xứ : Quảng  Châu\r\n\r\n\r\n\r\nĐế cao :4cm\r\n\r\n\r\n\r\nMàu sắc : Đen , Kem\r\n\r\n\r\n\r\nSize : 35,36,37,38,39, 40', '1703482819.jpg', 100, 1, '1000000'),
+(37, 'Giày Vải Khóa Dán Nữ, Giày Dạo Phố Sinh Viên Phong Cách Hàn Quốc 12122', 27, 7, 'Chất liệu bên trên : Vải\r\n\r\n\r\n\r\nChất liệu bên trong : vải\r\n\r\n\r\n\r\nKiểu đế : đế bằng\r\n\r\n\r\nVật liệu đế : đế cao su chống trượt , chống mòn \r\n\r\n\r\n\r\nXuất xứ : Quảng  Châu\r\n\r\n\r\n\r\nĐế cao : 3cm\r\n\r\n\r\n\r\nMàu sắc : Đen , Trắng sữa , Đỏ\r\n\r\n\r\n\r\nSize : 35,36,37,38,39, 4', '1703482874.jpg', 100, 1, '7800000'),
+(38, 'Giày Bốt Martin Da PU Lưới Phong Cách La Mã Nữ 11814', 29, 11, 'Chất liệu bên trên : Vải\r\n\r\n\r\n\r\nChất liệu bên trong : vải\r\n\r\n\r\n\r\nKiểu đế : đế bằng\r\n\r\n\r\nVật liệu đế : đế cao su chống trượt , chống mòn \r\n\r\n\r\n\r\nXuất xứ : Quảng  Châu\r\n\r\n\r\n\r\nĐế cao : 3cm\r\n\r\n\r\n\r\nMàu sắc : Đen , Trắng sữa , Đỏ\r\n\r\n\r\n\r\nSize : 35,36,37,38,39, 4', '1703482915.jpg', 100, 1, '120000'),
+(39, 'Giày Bốt Martin Da PU Lưới Phong Cách La Mã Nữ 11814', 29, 5, 'Chất liệu bên trên : Vải\r\n\r\n\r\n\r\nChất liệu bên trong : vải\r\n\r\n\r\n\r\nKiểu đế : đế bằng\r\n\r\n\r\nVật liệu đế : đế cao su chống trượt , chống mòn \r\n\r\n\r\n\r\nXuất xứ : Quảng  Châu\r\n\r\n\r\n\r\nĐế cao : 3cm\r\n\r\n\r\n\r\nMàu sắc : Đen , Trắng sữa , Đỏ\r\n\r\n\r\n\r\nSize : 35,36,37,38,39, 4', '1703482945.jpg', 100, 1, '80000'),
+(40, 'Giày Vải Nữ Giày Thể Thao Thời Trang ', 27, 7, 'Chất liệu bên trên : Vải\r\n\r\n\r\n\r\nChất liệu bên trong : vải\r\n\r\n\r\n\r\nKiểu đế : đế bằng\r\n\r\n\r\nVật liệu đế : đế cao su chống trượt , chống mòn \r\n\r\n\r\n\r\nXuất xứ : Quảng  Châu\r\n\r\n\r\n\r\nĐế cao : 3cm\r\n\r\n\r\n\r\nMàu sắc : Đen , Trắng sữa , Đỏ\r\n\r\n\r\n\r\nSize : 35,36,37,38,39, 4', '1703482996.jpg', 100, 1, '90000'),
+(41, 'Dép Sandal Đế Cao Nữ 12127', 28, 6, 'Chất liệu bên trên : Vải\r\n\r\n\r\n\r\nChất liệu bên trong : vải\r\n\r\n\r\n\r\nKiểu đế : đế bằng\r\n\r\n\r\nVật liệu đế : đế cao su chống trượt , chống mòn \r\n\r\n\r\n\r\nXuất xứ : Quảng  Châu\r\n\r\n\r\n\r\nĐế cao : 3cm\r\n\r\n\r\n\r\nMàu sắc : Đen , Trắng sữa , Đỏ\r\n\r\n\r\n\r\nSize : 35,36,37,38,39, 4', '1703483035.jpg', 100, 1, '10000'),
+(42, 'Dép Sandal Mùa Hè Cặp Đôi Đi Chơi Đi Biển Chống Trơn Trượt Chất Liệu Eva 11759', 31, 6, 'Chất liệu bên trên : Vải\r\n\r\n\r\n\r\nChất liệu bên trong : vải\r\n\r\n\r\n\r\nKiểu đế : đế bằng\r\n\r\n\r\nVật liệu đế : đế cao su chống trượt , chống mòn \r\n\r\n\r\n\r\nXuất xứ : Quảng  Châu\r\n\r\n\r\n\r\nĐế cao : 3cm\r\n\r\n\r\n\r\nMàu sắc : Đen , Trắng sữa , Đỏ\r\n\r\n\r\n\r\nSize : 35,36,37,38,39, 4', '1703483094.jpg', 97, 1, '1000000');
 
 -- --------------------------------------------------------
 
@@ -279,7 +274,7 @@ CREATE TABLE `shipping_unit` (
 --
 
 INSERT INTO `shipping_unit` (`id`, `name_ship`, `price`, `status`) VALUES
-(2, 'Giao hàng tiết kiệm', 20000, 0),
+(2, 'Giao hàng tiết kiệm', 56900, 0),
 (4, 'Loship', 30000, 0),
 (5, 'Bee', 25000, 0);
 
@@ -306,15 +301,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `name`, `email`, `phone`, `password`, `created_at`, `type`, `token`, `status`) VALUES
-(6, 'An An    ', 'nguyenvanducan2000@gmail.com', '0372432119', 87, '2023-10-06 07:14:06', 0, '3063f4fca4dbce85144c2dd6eebd40ab', 0),
-(8, 'An An', '123@gmail.com', '0372432119', 202, '2023-10-16 02:44:18', 0, NULL, 0),
-(9, 'An An', 'ducan2000@gmail.com', '0372432119', 0, '2023-10-23 08:57:23', 0, '8cc48d2897565afc4362b1c6c7324e86', 0),
-(12, 'an                  ', '19004002@st.vlute.edu.vn', '0372432119', 87, '2023-11-10 06:53:02', 1, '9486cd46ae6cd4828b5d11f63375b322', 0),
-(13, 'An', '', '0375345', 0, '2023-12-05 04:52:38', 0, NULL, 0),
-(14, 'An', 'ducan20001@gmail.com', '0372432119', 202, '2023-12-05 05:24:06', 0, NULL, 0),
-(15, 'Ghế', 'nguyenvanducan20001@gmail.com', '0372432119', 202, '2023-12-05 05:26:04', 0, NULL, 0),
-(16, 'An', '2311@gmail.com', '0372432110', 87, '2023-12-05 05:27:01', 0, NULL, 0),
-(17, 'An', 'jude@yahoo.com', '0372432119', 87, '2023-12-05 10:53:29', 2, NULL, 0);
+(12, 'huyen', '20004061@st.vlute.edu.vn', '099998888', 751, '2023-11-10 06:53:02', 1, '9486cd46ae6cd4828b5d11f63375b322', 0),
+(18, 'ngochuyen', 'admin@gmail.com', '0939643264', 751, '2024-02-25 03:52:46', 0, NULL, 0),
+(19, 'huyenne', 'ngochuyen@gmail.com', '0123456789', 751, '2024-02-25 04:00:53', 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -334,7 +323,9 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`id`, `prod_id`, `user_id`, `create_at`) VALUES
-(61, 33, 12, '2023-11-23 10:01:21');
+(61, 33, 12, '2023-11-23 10:01:21'),
+(62, 36, 19, '2024-02-25 04:01:09'),
+(63, 42, 19, '2024-02-25 04:01:19');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -408,13 +399,13 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT cho bảng `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -432,13 +423,13 @@ ALTER TABLE `helpper`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT cho bảng `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
@@ -456,13 +447,13 @@ ALTER TABLE `shipping_unit`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

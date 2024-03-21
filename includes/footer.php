@@ -15,7 +15,7 @@
                 <h4 class="text-danger fw-bold">Địa chỉ</h4>
                 <div class="underline mb-2"></div>
                 <p class="text-dark"> To 9 - Ap 4 - Tan Thanh - Cai Be - Tien Giang - Viet Nam</p>
-                <a href="+84 372432119"><i class="fa fa-phone"></i> +84 372432119</a><br>
+                <a href="+84 90000000"><i class="fa fa-phone"></i> +84 90000000</a><br>
                 <a href="noithatviet@hotro.com"><i class="fa fa-envelope"></i> noithatviet@hotro.com</a>
             </div>
 

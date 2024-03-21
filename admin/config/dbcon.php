@@ -2,7 +2,7 @@
     $host ="localhost";
     $username ="root";
     $password ="";
-    $database ="bannoithat_db";
+    $database ="quanlygiaydep";
 
     // tạo connect với database
     $con = mysqli_connect($host,$username,$password,$database);

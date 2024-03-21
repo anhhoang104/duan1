@@ -20,7 +20,7 @@ include('includes/header.php');
                     <img src="https://nhaxinh.com/wp-content/uploads/2021/11/nha-xinh-gioi-thieu-chat-luong-251121.jpg"
                         alt="Background Image">
                     <div class="overlay-text">
-                        <h1>Welcome to Nội thất Việt</h1>
+                        <h1>Welcome to THỜI TRANG VIỆT</h1>
                         <p>Chào bạn đã đến với chúng tôi.</p>
                     </div>
                 </div>
@@ -33,16 +33,16 @@ include('includes/header.php');
         <hr>
         <div class="row">
             <div class="col col-md-12">
-                <h5 class="text-center">Ra đời từ ý tưởng tạo nên sự khác biệt, Nội Thất Việt đã giữ vững và phát triển
-                    trở thành vị trí hàng đầu trong thị trường nội thất Việt Nam. Đến nay, Nội thất việt đã có nhiều cửa
+                <h5 class="text-center">Ra đời từ ý tưởng tạo nên sự khác biệt, THỜI TRANG VIỆT đã giữ vững và phát triển
+                    trở thành vị trí hàng đầu trong thị trường THỜI TRANG VIỆT Nam. Đến nay, THỜI TRANG VIỆT đã có nhiều cửa
                     hàng quy mô và chuyên nghiệp tại các thành phố lớn là Hà Nội và TP.HCM, Bình Dương.</h5>
                 <p class="text-center">Với mong muốn phát triển thương hiệu Việt bằng nội lực, Nhà Xinh đã chú trọng vào
-                    thiết kế và sản xuất nội thất trong nước. Danh mục sản phẩm của Nội thất việt thường xuyên được đổi
+                    thiết kế và sản xuất nội thất trong nước. Danh mục sản phẩm của THỜI TRANG VIỆT thường xuyên được đổi
                     mới và cập nhật, liên tục cung cấp cho khách hàng các dòng sản phẩm theo xu hướng mới nhất. Do chính
-                    người Việt thiết kế và sản xuất, nội thất thương hiệu Nội thất việt luôn phù hợp với cuộc sống Á
+                    người Việt thiết kế và sản xuất, nội thất thương hiệu THỜI TRANG VIỆT luôn phù hợp với cuộc sống Á
                     Đông, đem đến sự tiện nghi hoàn hảo trong mọi không gian sống.</p>
                 <div class="text-center">
-                    <a href="index.php" class="btn btn-primary btn-lg">Ghé thăm Bán Nội Thất <i class="fa fa-forward"
+                    <a href="index.php" class="btn btn-primary btn-lg">Ghé thăm THỜI TRANG VIỆT <i class="fa fa-forward"
                             aria-hidden="true"></i></a>
                 </div>
             </div>
