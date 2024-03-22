@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark shadow">
   <div class="container">
-    <a class="navbar-brand" href="index.php">THỜI TRANG VIỆT</a>
+    <a class="navbar-brand" href="index.php">Mỹ phẩm Dior</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
