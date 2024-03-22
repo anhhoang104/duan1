@@ -6,3 +6,8 @@ a{
     text-decoration: none;
     
 }
+
+.spnb{
+    display: inline-block;
+    margin: 5px 10px;
+}

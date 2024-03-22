@@ -20,7 +20,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
     <ul class="navbar-nav">
 
     
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link text-white   <?= $page == "index.php" ? 'active bg-gradient-primary' : ''; ?>"
           href="index.php">
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -28,7 +28,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
           </div>
           <span class="nav-link-text ms-1">Dashboard</span>
         </a>
-      </li>
+      </li> -->
 
 
 

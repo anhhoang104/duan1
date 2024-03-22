@@ -11,6 +11,7 @@ include('includes/slider.php');
                 <h4 class="text-danger fw-bold">Sản phẩm nổi bật</h4>
                 <div class="underline mb-3"></div>
                 <div class="owl-carousel">
+                
                     <?php
                     $trendingProduct = getAllTrending();
                     if (mysqli_num_rows($trendingProduct) > 0) {
