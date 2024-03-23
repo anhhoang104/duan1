@@ -16,37 +16,81 @@ include('includes/header.php');
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="image-overlay">
-                    <img src="https://nhaxinh.com/wp-content/uploads/2021/11/nha-xinh-gioi-thieu-chat-luong-251121.jpg"
-                        alt="Background Image">
-                    <div class="overlay-text">
-                        <h1>Welcome to THỜI TRANG VIỆT</h1>
-                        <p>Chào bạn đã đến với chúng tôi.</p>
-                    </div>
-                </div>
+                  <video autoplay loop muted>
+                    <source type="video/mp4" src="assets/images/video.mp4">
+                </video>
             </div>
         </div>
     </div>
     <!-- Block content -->
     <div class="container mt-2">
-        <h1 class="text-center">Giá trị và sự khác biệt</h1>
+        <h1 class="text-center">VỀ CHÚNG TÔI</h1>
         <hr>
         <div class="row">
             <div class="col col-md-12">
-                <h5 class="text-center">Ra đời từ ý tưởng tạo nên sự khác biệt, THỜI TRANG VIỆT đã giữ vững và phát triển
-                    trở thành vị trí hàng đầu trong thị trường THỜI TRANG VIỆT Nam. Đến nay, THỜI TRANG VIỆT đã có nhiều cửa
-                    hàng quy mô và chuyên nghiệp tại các thành phố lớn là Hà Nội và TP.HCM, Bình Dương.</h5>
-                <p class="text-center">Với mong muốn phát triển thương hiệu Việt bằng nội lực, Nhà Xinh đã chú trọng vào
-                    thiết kế và sản xuất nội thất trong nước. Danh mục sản phẩm của THỜI TRANG VIỆT thường xuyên được đổi
-                    mới và cập nhật, liên tục cung cấp cho khách hàng các dòng sản phẩm theo xu hướng mới nhất. Do chính
-                    người Việt thiết kế và sản xuất, nội thất thương hiệu THỜI TRANG VIỆT luôn phù hợp với cuộc sống Á
-                    Đông, đem đến sự tiện nghi hoàn hảo trong mọi không gian sống.</p>
+            <h5 class="text-center">Christian Dior S.A (Dior) là thương hiệu nổi tiếng của Pháp, được thành lập vào 
+                    16/12/1946 tại cư dinh của Christian Dior. Đến năm 1947, thương hiệu này mới chính thức được thành lập.
+                    Dù được thành lập bởi Christian Dior nhưng hiện được điều hành bởi tỷ phú Bernard Arnault – Người đứng 
+                    đầu LVMH lớn nhất thế giới. Dior là công ty chuyên thiết kế và sở hữu chuỗi cửa hàng bán lẻ đa dạng, các 
+                    sản phẩm cao cấp gồm thời trang, phụ kiện, làm đẹp, đồng hồ, nước hoa,… dành cho phái đẹp.</h5>
+                <p class="text-center">Các sản phẩm của Dior đều có thiết kế sang trọng, thanh lịch và độc đáo. Một phần cũng 
+                    bởi Christian Dior là người yêu cái đẹp, yêu thiên nhiên nên do đó, các thiết kế của ông có phần tự do, thoáng
+                     mát. Đến nay, Dior vẫn luôn không ngừng cập nhật những xu hướng mới để tạo ra những sản phẩm mang chất riêng.</p>
                 <div class="text-center">
-                    <a href="index.php" class="btn btn-primary btn-lg">Ghé thăm THỜI TRANG VIỆT <i class="fa fa-forward"
+                    <a href="index.php" class="btn btn-primary btn-lg">Welcome to Dior <i class="fa fa-forward"
                             aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
+        <br>
+        <div class="counterup_section">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="single_counterup">
+                                           <div class="counter_img">
+                                                <img src="assets/images/count.png" alt="">
+                                            </div>
+                                            <div class="counter_info">
+                                                <h2 class="counter_number">2170</h2>
+                                                <p>happy customers</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="single_counterup count-two">
+                                            <div class="counter_img">
+                                                <img src="assets/images/count2.png" alt="">
+                                            </div>
+                                            <div class="counter_info">
+                                                <h2 class="counter_number">8080</h2>
+                                                <p>AWARDS won</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="single_counterup">
+                                            <div class="counter_img">
+                                                <img src="assets/images/count3.png" alt="">
+                                            </div>
+                                            <div class="counter_info">
+                                                <h2 class="counter_number">2150</h2>
+                                                <p>HOURS WORKED</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="col-lg-3 col-md-6 col-sm-6">
+                                        <div class="single_counterup count-two">
+                                            <div class="counter_img">
+                                                <img src="assets/images/cart5.png" alt="">
+                                            </div>
+                                            <div class="counter_info">
+                                                <h2 class="counter_number">2170</h2>
+                                                <p>COMPLETE PROJECTS</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
         <div class="row mt-2">
             <div class="col col-md-12">
                 <h1 class="tieu-de">Chúng tôi ở đây!</h1>
@@ -63,3 +107,34 @@ include('includes/header.php');
     <!-- End block content -->
 </main>
 <?php include('includes/footer.php'); ?>
+<style>
+    video {
+ /* position: absolute; */
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 70vh;
+ object-fit: cover;
+}
+.single_counterup{
+    margin-bottom: 35px;
+}
+.single_counterup{
+    -webkit-box-pack: center;
+    justify-content: center;
+    background: #f3f3f3;
+    padding: 88px 0 80px;
+    /* display: -webkit-box; */
+    /* display: -ms-flexbox; */
+    display: flex;
+    /* margin-bottom: 27px; */
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+div {
+    /* display: block; */
+    unicode-bidi: isolate;
+}
+
+</style>

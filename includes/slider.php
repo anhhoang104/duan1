@@ -2,13 +2,13 @@
 <div id="carouselExampleFade" class="carousel slide carousel-fade">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/images/maxresdefault.jpg" height="400px" class="d-block w-100" alt="...">
+      <img src="assets/images/banner1.jpg" height="400px" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="assets/images/MNT-DESIGN-BANNER-GIAY-01.jpg" height="400px" class="d-block w-100" alt="...">
+      <img src="assets/images/banner2.jpg" height="400px" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="assets/images/cong-tac-vien-banner.jpg" height="400px" class="d-block w-100" alt="...">
+      <img src="assets/images/banner3.jpg" height="400px" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

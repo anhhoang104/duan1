@@ -1,7 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark shadow">
   <div class="container">
     <a class="navbar-brand" href="index.php">Mỹ phẩm Dior</a>
+<<<<<<< HEAD
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+=======
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+>>>>>>> 6228f5a185cfd7c14c4bede88d7f24b257fc7d05
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">

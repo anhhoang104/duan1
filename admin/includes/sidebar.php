@@ -16,15 +16,22 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
   <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
     <ul class="navbar-nav">
 
+<<<<<<< HEAD
 
       <li class="nav-item">
         <a class="nav-link text-white   <?= $page == "index.php" ? 'active bg-gradient-primary' : ''; ?>" href="index.php">
+=======
+    
+      <!-- <li class="nav-item">
+        <a class="nav-link text-white   <?= $page == "index.php" ? 'active bg-gradient-primary' : ''; ?>"
+          href="index.php">
+>>>>>>> 6228f5a185cfd7c14c4bede88d7f24b257fc7d05
           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">dashboard</i>
           </div>
           <span class="nav-link-text ms-1">Dashboard</span>
         </a>
-      </li>
+      </li> -->
 
 
 
