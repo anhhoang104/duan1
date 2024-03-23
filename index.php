@@ -49,15 +49,9 @@ include('includes/slider.php');
             <div class="col-md-12">
                 <h4 class="text-danger fw-bold">Thông tin </h4>
                 <div class="underline mb-2"></div>
-                <p>Thành lập ngày 07/08/1998, THỜI TRANG VIỆT là thương hiệu uy tín hàng đầu Việt Nam trong lĩnh vực
-                    kinh doanh các sản phẩm nội thất chất lượng cao, nhập khẩu chính hãng từ Châu Âu, Châu Á và các sản
-                    phẩm sản xuất tại Nhà máy quy mô 15.000m2 của Hoàn Mỹ.</p>
+                <p>Dior là một thương hiệu thời trang cao cấp nổi tiếng toàn cầu, được biết đến với sự sang trọng, phong cách và sự sáng tạo. Thương hiệu này được thành lập bởi nhà thiết kế người Pháp Christian Dior vào năm 1946, và từ đó đã trở thành một trong những biểu tượng của ngành công nghiệp thời trang.</p>
 
-                <p>Xuyên suốt chặng đường hình thành và phát triển, Nội thất Hoàn Mỹ đã góp phần kiến tạo hàng triệu tổ
-                    ấm gia đình. Với chúng tôi, nhà không đơn thuần chỉ là nơi để ở, mà quan trọng hơn, đó là nơi tận
-                    hưởng cuộc sống, thể hiện cái “TÔI” của mỗi con người. <br>
-                    Nội thất Hoàn Mỹ đề cao tính thẩm mĩ cũng như giá trị sử dụng trong từng sản phẩm, chinh phục khách
-                    hàng bằng chất lượng hoàn hảo, giá cả cạnh tranh cùng dịch vụ chuyên nghiệp.</p>
+                <p>Christian Dior nổi tiếng với việc tái định nghĩa phong cách thời trang sau Thế chiến II bằng cách giới thiệu những bộ sưu tập áo dài, váy áo và phụ kiện có sự pha trộn giữa sự nữ tính và phong cách cổ điển. Một trong những thiết kế nổi tiếng nhất của ông là bộ sưu tập "New Look" được giới thiệu vào năm 1947, với những chiếc váy áo đầy phần cổ điển, eo thon và váy xòe, làm nổi bật vẻ đẹp và nữ tính của phụ nữ.</p>
 
 
 

@@ -24,9 +24,9 @@
         <li class="nav-item">
           <a class="nav-link" href="category.php">Danh mục</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="wishlist.php">Yêu thích</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="about.php">Giới thiệu</a>
         </li>
