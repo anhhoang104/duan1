@@ -52,7 +52,10 @@ include('includes/slider.php');
                 <p>Dior là một thương hiệu thời trang cao cấp nổi tiếng toàn cầu, được biết đến với sự sang trọng, phong cách và sự sáng tạo. Thương hiệu này được thành lập bởi nhà thiết kế người Pháp Christian Dior vào năm 1946, và từ đó đã trở thành một trong những biểu tượng của ngành công nghiệp thời trang.</p>
 
                 <p>Christian Dior nổi tiếng với việc tái định nghĩa phong cách thời trang sau Thế chiến II bằng cách giới thiệu những bộ sưu tập áo dài, váy áo và phụ kiện có sự pha trộn giữa sự nữ tính và phong cách cổ điển. Một trong những thiết kế nổi tiếng nhất của ông là bộ sưu tập "New Look" được giới thiệu vào năm 1947, với những chiếc váy áo đầy phần cổ điển, eo thon và váy xòe, làm nổi bật vẻ đẹp và nữ tính của phụ nữ.</p>
+                
+                <p>Dior không chỉ hoạt động trong lĩnh vực thời trang mà còn mở rộng sang nhiều lĩnh vực khác như mỹ phẩm, nước hoa, trang sức và phụ kiện. Các sản phẩm của Dior thường được biết đến với chất lượng cao cấp, phong cách độc đáo và sự đổi mới trong thiết kế.</p>
 
+                <p>Hiện nay, Dior vẫn tiếp tục là một trong những thương hiệu thời trang hàng đầu trên thế giới, với sự hiện diện trong các sự kiện thời trang hàng đầu, cùng việc mở rộng thị trường và phát triển các dòng sản phẩm mới.</p>
 
 
             </div>
