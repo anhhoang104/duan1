@@ -10,8 +10,35 @@ a{
 .sanpham{
     display: inline-block;
     margin: 5px 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+
 }
 
 .nav-link{
     color: aliceblue;
 }
+
+
+/* .item{
+    width: 20%;
+    height: 120px;
+    border: 1px solid black;
+} */
+
+
+ /* .card{
+    width : 20%;
+    border: 1px solid black;
+    height: 100px;
+    
+}  */
+.item{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+

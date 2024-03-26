@@ -21,9 +21,11 @@ include('includes/slider.php');
                                 <a href="product-view.php?productid=<?= $item['id'] ?>">
 
                                     <div class="card shadow category-card">
+                                    <!-- <div class="card shadow category-card"> -->
                                         <div class="card-body">
+                                        <!-- <div class="card-body"> -->
 
-                                            <img src="uploads/<?= $item['image'] ?>" alt="" class="w-100"
+                                            <img class="" src="uploads/<?= $item['image'] ?>" alt="" class="w-100"
                                                 style='height: 160px;'>
                                             <h5>
                                                 <?= $item['productName']; ?>
