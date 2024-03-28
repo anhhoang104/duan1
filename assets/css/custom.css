@@ -11,8 +11,7 @@ a{
     display: inline-block;
     margin: 5px 10px;
     display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: #2196F3;
+    grid-template-columns: auto auto auto ;
     padding: 10px;
 
 }
@@ -36,9 +35,10 @@ a{
     
 }  */
 .item{
-    border: 1px solid rgba(0, 0, 0, 0.8);
+  
     padding: 20px;
     font-size: 30px;
-    text-align: center;
+    text-align: center; 
+    margin-bottom: 10px;
 }
 
