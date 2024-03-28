@@ -11,8 +11,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <!-- search start -->
-      <form action="search.php" method="GET" class="d-flex ms-auto">
-        <input class="form-control mr-sm-2" type="text" name="query" placeholder="Tìm kiếm sản phẩm..." aria-label="Search" style="width: 400px;">
+      <form action="search.php" method="GET" class="fromtk d-flex ms-auto">
+        <input class="tkiem form-control mr-sm-2" type="text" name="query" placeholder="Tìm kiếm sản phẩm..." aria-label="Search" style="width: 400px;">
         <button class="tim kiem btn btn-outline-secondary" type="submit">Tìm kiếm</button>
       </form>
       <!-- search end -->
