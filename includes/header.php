@@ -26,7 +26,6 @@
 
 
 
-
     <title>Mỹ phẩm Dior</title>
 
 
@@ -34,6 +33,11 @@
         a {
             text-decoration: none;
         }
+         
+
+       .sanpham>.item{
+          display: inline-block;
+       }
 
         .category-card {
             width: 100%;
