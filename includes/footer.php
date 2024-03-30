@@ -14,9 +14,9 @@
             <div class="col-md-3 text-white">
                 <h4 class="text-danger fw-bold">Địa chỉ</h4>
                 <div class="underline mb-2"></div>
-                <p class="text-dark"> To 9 - Ap 4 - Tan Thanh - Cai Be - Tien Giang - Viet Nam</p>
+                <p class="text-dark"> Nhân Mỹ, Mĩ Đình 1, Nam Từ Liêm, Hà Nội</p>
                 <a href="+84 90000000"><i class="fa fa-phone"></i> +84 90000000</a><br>
-                <a href="noithatviet@hotro.com"><i class="fa fa-envelope"></i> noithatviet@hotro.com</a>
+                <a href="noithatviet@hotro.com"><i class="fa fa-envelope"></i> miphamchinhhang@hotro.com</a>
             </div>
 
             <div class="col-md-4">
